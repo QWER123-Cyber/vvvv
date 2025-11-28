@@ -5,13 +5,11 @@ import "./globals.css";
 // 引入中文字体
 const notoSansSC = Noto_Serif_SC({
   variable: "--font-noto-serif-sc",
-  subsets: ["chinese-simplified"],
   weight: ["400", "700", "900"],
 });
 
 const maShanZheng = Ma_Shan_Zheng({
   variable: "--font-ma-shan-zheng",
-  subsets: ["chinese-simplified"],
   weight: "400",
 });
 
