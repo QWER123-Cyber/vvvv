@@ -1,6 +1,18 @@
+'use client';
+
 import Link from 'next/link';
+import React from 'react';
 
 export default function ForbiddenCityPage() {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+  
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
   return (
     <div className="min-h-screen pt-20" style={{
       background: 'linear-gradient(135deg, #ffe0b2 0%, #ff9800 100%)',
@@ -15,7 +27,8 @@ export default function ForbiddenCityPage() {
               <div className="flex items-center">
                 <span className="text-2xl font-bold text-chinese-red font-serif">故宫博物院</span>
               </div>
-              <div className="flex items-center space-x-6">
+              {/* 桌面端导航 */}
+              <div className="hidden md:flex items-center space-x-4">
                 <Link href="/" className="text-gray-600 hover:text-chinese-red font-medium">网站首页</Link>
                 <Link href="/forbidden-city" className="text-chinese-red hover:text-chinese-red-dark font-medium">故宫首页</Link>
                 <Link href="#introduction" className="text-gray-600 hover:text-chinese-red font-medium">景点简介</Link>
@@ -25,9 +38,100 @@ export default function ForbiddenCityPage() {
                 <Link href="#experience" className="text-gray-600 hover:text-chinese-red font-medium">特色体验</Link>
                 <Link href="#visit-info" className="text-gray-600 hover:text-chinese-red font-medium">旅游信息</Link>
               </div>
+              {/* 移动端汉堡菜单按钮 */}
+              <div className="md:hidden flex items-center">
+                <button 
+                  className="text-gray-600 hover:text-chinese-red focus:outline-none"
+                  onClick={toggleMenu}
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    {isMenuOpen ? (
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    ) : (
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+                    )}
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
         </nav>
+
+      {/* 移动端导航菜单 */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-chinese-light fixed inset-0 z-50">
+          <div className="flex flex-col h-full p-4">
+            <div className="flex justify-end mb-8">
+              <button 
+                className="text-gray-600 hover:text-chinese-red focus:outline-none"
+                onClick={toggleMenu}
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div className="flex flex-col space-y-6 items-center justify-center flex-1">
+              <Link 
+                href="/" 
+                className="text-2xl font-medium text-gray-600 hover:text-chinese-red transition-colors"
+                onClick={closeMenu}
+              >
+                网站首页
+              </Link>
+              <Link 
+                href="/forbidden-city" 
+                className="text-2xl font-medium text-chinese-red hover:text-chinese-red-dark transition-colors"
+                onClick={closeMenu}
+              >
+                故宫首页
+              </Link>
+              <Link 
+                href="#introduction" 
+                className="text-2xl font-medium text-gray-600 hover:text-chinese-red transition-colors"
+                onClick={closeMenu}
+              >
+                景点简介
+              </Link>
+              <Link 
+                href="#history" 
+                className="text-2xl font-medium text-gray-600 hover:text-chinese-red transition-colors"
+                onClick={closeMenu}
+              >
+                历史沿革
+              </Link>
+              <Link 
+                href="#attractions" 
+                className="text-2xl font-medium text-gray-600 hover:text-chinese-red transition-colors"
+                onClick={closeMenu}
+              >
+                主要景点
+              </Link>
+              <Link 
+                href="#beauty" 
+                className="text-2xl font-medium text-gray-600 hover:text-chinese-red transition-colors"
+                onClick={closeMenu}
+              >
+                故宫之美
+              </Link>
+              <Link 
+                href="#experience" 
+                className="text-2xl font-medium text-gray-600 hover:text-chinese-red transition-colors"
+                onClick={closeMenu}
+              >
+                特色体验
+              </Link>
+              <Link 
+                href="#visit-info" 
+                className="text-2xl font-medium text-gray-600 hover:text-chinese-red transition-colors"
+                onClick={closeMenu}
+              >
+                旅游信息
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* 封面图 */}
       <div className="mt-16 relative">

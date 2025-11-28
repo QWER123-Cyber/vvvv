@@ -1,7 +1,19 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import React from 'react';
 
 export default function WuhanPage() {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+  
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
   return (
     <div className="min-h-screen pt-20" style={{
       backgroundImage: `linear-gradient(135deg, rgba(255, 245, 238, 0.9) 0%, rgba(255, 222, 173, 0.8) 50%, rgba(224, 255, 255, 0.7) 100%), url('/images/背景图.jpg')`,
@@ -15,7 +27,8 @@ export default function WuhanPage() {
             <div className="flex items-center">
               <span className="text-2xl font-bold text-chinese-red font-serif">中国旅游景点</span>
             </div>
-            <div className="flex items-center space-x-4">
+            {/* 桌面端导航 */}
+            <div className="hidden md:flex items-center space-x-4">
               <Link href="/" className="text-gray-700 hover:text-chinese-red font-medium">首页</Link>
               <Link href="/attractions" className="text-gray-700 hover:text-chinese-red font-medium">景点详情</Link>
               <Link href="/food" className="text-gray-700 hover:text-chinese-red font-medium">美食推荐</Link>
@@ -23,9 +36,86 @@ export default function WuhanPage() {
               <Link href="/wuhan" className="text-gray-700 hover:text-chinese-red font-medium">黄鹤楼</Link>
               <Link href="/game" className="text-gray-700 hover:text-chinese-red font-medium">翻牌游戏</Link>
             </div>
+            {/* 移动端汉堡菜单按钮 */}
+            <div className="md:hidden flex items-center">
+              <button 
+                className="text-gray-700 hover:text-chinese-red focus:outline-none"
+                onClick={toggleMenu}
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {isMenuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+                  )}
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </nav>
+
+      {/* 移动端导航菜单 */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-chinese-light fixed inset-0 z-50">
+          <div className="flex flex-col h-full p-4">
+            <div className="flex justify-end mb-8">
+              <button 
+                className="text-gray-700 hover:text-chinese-red focus:outline-none"
+                onClick={toggleMenu}
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div className="flex flex-col space-y-6 items-center justify-center flex-1">
+              <Link 
+                href="/" 
+                className="text-2xl font-medium text-gray-700 hover:text-chinese-red transition-colors"
+                onClick={closeMenu}
+              >
+                首页
+              </Link>
+              <Link 
+                href="/attractions" 
+                className="text-2xl font-medium text-gray-700 hover:text-chinese-red transition-colors"
+                onClick={closeMenu}
+              >
+                景点详情
+              </Link>
+              <Link 
+                href="/food" 
+                className="text-2xl font-medium text-gray-700 hover:text-chinese-red transition-colors"
+                onClick={closeMenu}
+              >
+                美食推荐
+              </Link>
+              <Link 
+                href="/transport" 
+                className="text-2xl font-medium text-gray-700 hover:text-chinese-red transition-colors"
+                onClick={closeMenu}
+              >
+                交通指南
+              </Link>
+              <Link 
+                href="/wuhan" 
+                className="text-2xl font-medium text-gray-700 hover:text-chinese-red transition-colors"
+                onClick={closeMenu}
+              >
+                黄鹤楼
+              </Link>
+              <Link 
+                href="/game" 
+                className="text-2xl font-medium text-gray-700 hover:text-chinese-red transition-colors"
+                onClick={closeMenu}
+              >
+                翻牌游戏
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* 主要内容 */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

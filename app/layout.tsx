@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Noto_Serif_SC, Ma_Shan_Zheng } from "next/font/google";
 import "./globals.css";
 
@@ -17,7 +17,16 @@ const maShanZheng = Ma_Shan_Zheng({
 
 export const metadata: Metadata = {
   title: "中国旅游文化网",
-  description: "探索中国的历史文化与自然风光",
+  description: "探索中国丰富的旅游资源和文化"
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1.0,
+  maximumScale: 1.0,
+  userScalable: false,
+  viewportFit: 'cover',
+  themeColor: '#c62828'
 };
 
 export default function RootLayout({ children,
