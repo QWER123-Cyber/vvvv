@@ -2,11 +2,14 @@ import Link from 'next/link';
 
 export default function FoodPage() {
   return (
-    <div className="min-h-screen bg-xuanzhi pt-20" style={{
-      backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d32f2f' fill-opacity='0.06'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+    <div className="min-h-screen pt-20" style={{
+      background: 'linear-gradient(135deg, #fff5e6 0%, #ffd700 100%)',
+      backgroundImage: `url('/images/背景图.jpg')`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center'
     }}>
       {/* 导航栏 */}
-      <nav className="bg-xuanzhi shadow-md border-b-2 border-chinese-gold fixed top-0 left-0 right-0 z-50">
+      <nav className="bg-cover bg-center bg-no-repeat shadow-md border-b-2 border-chinese-gold fixed top-0 left-0 right-0 z-50" style={{ backgroundImage: `url('/images/背景图.jpg')` }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
@@ -33,29 +36,104 @@ export default function FoodPage() {
             <p className="text-gray-600 mb-6">中国美食历史悠久，菜系丰富多样，每个地区都有其独特的风味和特色小吃。</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
               <div className="chinese-card p-6 hover:shadow-lg transition-shadow duration-300">
-                <h4 className="text-xl font-semibold text-gray-800 mb-3">北京烤鸭</h4>
-                <div className="h-40 bg-[url('/images/北京烤鸭.jpg')] bg-cover bg-center rounded-lg mb-3"></div>
+                <h4 className="text-xl font-semibold text-chinese-red-dark mb-3 font-[var(--font-ma-shan-zheng)]">北京烤鸭</h4>
+                <div className="h-40 overflow-hidden">
+                  <img 
+                    src="/images/北京烤鸭.jpg" 
+                    alt="北京烤鸭" 
+                    className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
                 <p className="text-gray-600">北京烤鸭是北京的传统名菜，以色泽红艳、肉质细嫩、味道醇厚而闻名。</p>
               </div>
               <div className="chinese-card p-6 hover:shadow-lg transition-shadow duration-300">
-                <h4 className="text-xl font-semibold text-chinese-red-dark mb-3 font-serif">上海生煎包</h4>
-                <div className="h-40 bg-[url('/images/上海生煎包.jpg')] bg-cover bg-center rounded-lg mb-3"></div>
+                <h4 className="text-xl font-semibold text-chinese-red-dark mb-3 font-[var(--font-ma-shan-zheng)]">上海生煎包</h4>
+                <div className="h-40 overflow-hidden">
+                  <img 
+                    src="/images/上海生煎包.jpg" 
+                    alt="上海生煎包" 
+                    className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
                 <p className="text-gray-600">上海生煎包是上海的传统小吃，外皮底部煎得金黄酥脆，内部汤汁丰富。</p>
               </div>
               <div className="chinese-card p-6 hover:shadow-lg transition-shadow duration-300">
-                <h4 className="text-xl font-semibold text-chinese-red-dark mb-3 font-serif">河北驴肉火烧</h4>
-                <div className="h-40 bg-[url('/images/河北驴肉火烧.jpg')] bg-cover bg-center rounded-lg mb-3"></div>
+                <h4 className="text-xl font-semibold text-chinese-red-dark mb-3 font-[var(--font-ma-shan-zheng)]">河北驴肉火烧</h4>
+                <div className="h-40 overflow-hidden">
+                  <img 
+                    src="/images/河北驴肉火烧.jpg" 
+                    alt="河北驴肉火烧" 
+                    className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
                 <p className="text-gray-600">河北驴肉火烧是河北的传统名吃，以新鲜驴肉夹入酥脆的火烧中，口感丰富。</p>
               </div>
               <div className="chinese-card p-6 hover:shadow-lg transition-shadow duration-300">
-                <h4 className="text-xl font-semibold text-chinese-red-dark mb-3 font-serif">湖北热干面</h4>
-                <div className="h-40 bg-[url('/images/湖北热干面.jpg')] bg-cover bg-center rounded-lg mb-3"></div>
+                <h4 className="text-xl font-semibold text-chinese-red-dark mb-3 font-[var(--font-ma-shan-zheng)]">湖北热干面</h4>
+                <div className="h-40 overflow-hidden">
+                  <img 
+                    src="/images/湖北热干面.jpg" 
+                    alt="湖北热干面" 
+                    className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
                 <p className="text-gray-600">湖北热干面是武汉的特色小吃，以面条筋道、芝麻酱香浓而著称。</p>
               </div>
+
               <div className="chinese-card p-6 hover:shadow-lg transition-shadow duration-300">
-                <h4 className="text-xl font-semibold text-chinese-red-dark mb-3 font-serif">螺蛳粉</h4>
-                <div className="h-40 bg-[url('/images/螺蛳粉.jpg')] bg-cover bg-center rounded-lg mb-3"></div>
-                <p className="text-gray-600">螺蛳粉是广西柳州的特色小吃，以其独特的酸辣味和螺蛳汤的鲜味而闻名。</p>
+                <h4 className="text-xl font-semibold text-chinese-red-dark mb-3 font-[var(--font-ma-shan-zheng)]">吉林冷面</h4>
+                <div className="h-40 overflow-hidden">
+                  <img 
+                    src="/images/吉林冷面.jpg" 
+                    alt="吉林冷面" 
+                    className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <p className="text-gray-600">吉林冷面是东北地区的特色美食，以凉爽的口感和酸甜的味道而受到喜爱。</p>
+              </div>
+              <div className="chinese-card p-6 hover:shadow-lg transition-shadow duration-300">
+                <h4 className="text-xl font-semibold text-chinese-red-dark mb-3 font-[var(--font-ma-shan-zheng)]">广西螺蛳粉</h4>
+                <div className="h-40 overflow-hidden">
+                  <img 
+                    src="/images/广西螺蛳粉.jpg" 
+                    alt="广西螺蛳粉" 
+                    className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <p className="text-gray-600">广西螺蛳粉是广西壮族自治区的传统名吃，以独特的风味和丰富的配料著称。</p>
+              </div>
+              <div className="chinese-card p-6 hover:shadow-lg transition-shadow duration-300">
+                <h4 className="text-xl font-semibold text-chinese-red-dark mb-3 font-[var(--font-ma-shan-zheng)]">河南胡辣汤</h4>
+                <div className="h-40 overflow-hidden">
+                  <img 
+                    src="/images/河南胡辣汤.jpg" 
+                    alt="河南胡辣汤" 
+                    className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <p className="text-gray-600">河南胡辣汤是河南地区的传统早餐，以其麻辣鲜香的口感而闻名。</p>
+              </div>
+              <div className="chinese-card p-6 hover:shadow-lg transition-shadow duration-300">
+                <h4 className="text-xl font-semibold text-chinese-red-dark mb-3 font-[var(--font-ma-shan-zheng)]">浙江金华火腿</h4>
+                <div className="h-40 overflow-hidden">
+                  <img 
+                    src="/images/浙江金华火腿.jpg" 
+                    alt="浙江金华火腿" 
+                    className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <p className="text-gray-600">浙江金华火腿是中国传统的腌肉制品，以色泽鲜艳、香气浓郁而著称。</p>
+              </div>
+              <div className="chinese-card p-6 hover:shadow-lg transition-shadow duration-300">
+                <h4 className="text-xl font-semibold text-chinese-red-dark mb-3 font-[var(--font-ma-shan-zheng)]">辽宁鸡架</h4>
+                <div className="h-40 overflow-hidden">
+                  <img 
+                    src="/images/辽宁鸡架.jpg" 
+                    alt="辽宁鸡架" 
+                    className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <p className="text-gray-600">辽宁鸡架是东北地区的特色小吃，以其独特的腌制和烹饪方法而受到欢迎。</p>
               </div>
             </div>
             <Link 

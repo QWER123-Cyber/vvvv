@@ -6,11 +6,13 @@ import "./globals.css";
 const notoSansSC = Noto_Serif_SC({
   variable: "--font-noto-serif-sc",
   weight: ["400", "700", "900"],
+  subsets: ["latin"], // 使用允许的子集
 });
 
 const maShanZheng = Ma_Shan_Zheng({
   variable: "--font-ma-shan-zheng",
   weight: "400",
+  subsets: ["latin"], // 使用允许的子集
 });
 
 export const metadata: Metadata = {

@@ -1,12 +1,16 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function TransportPage() {
   return (
-    <div className="min-h-screen bg-xuanzhi pt-20" style={{
-      backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231565c0' fill-opacity='0.06'%3E%3Cpath d='M66 64c-5.523 0-10-4.477-10-10s4.477-10 10-10 10 4.477 10 10-4.477 10-10 10zm0 8c7.732 0 14-6.268 14-14s-6.268-14-14-14-14 6.268-14 14 6.268 14 14 14zm-29.6 18.4l1.116-1.116L43.2 64H20c0 8.837 7.163 16 16 16h3.2l3.2 3.2-1.116 1.116C40.216 95.96 33.108 100 25.6 100c-13.255 0-24-10.745-24-24s10.745-24 24-24c7.508 0 14.616 4.04 18.4 10.4l1.116-1.116L47.6 40H25.6c-8.837 0-16-7.163-16-16S16.763 8 25.6 8s16 7.163 16 16c0 7.508-4.04 14.616-10.4 18.4l-3.2-3.2-1.116 1.116C33.108 44 40.216 40.04 47.6 40c13.255 0 24 10.745 24 24s-10.745 24-24 24c-7.508 0-14.616-4.04-18.4-10.4z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+    <div className="min-h-screen pt-20" style={{
+      background: 'linear-gradient(135deg, #e0f7fa 0%, #29b6f6 100%)',
+      backgroundImage: `url('/images/背景图.jpg')`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center'
     }}>
       {/* 导航栏 */}
-      <nav className="bg-xuanzhi shadow-md border-b-2 border-chinese-gold fixed top-0 left-0 right-0 z-50">
+      <nav className="bg-cover bg-center bg-no-repeat shadow-md border-b-2 border-chinese-gold fixed top-0 left-0 right-0 z-50" style={{ backgroundImage: `url('/images/背景图.jpg')` }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
@@ -36,6 +40,14 @@ export default function TransportPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 mb-12">
               <div className="chinese-card p-6 hover:shadow-lg transition-shadow duration-300">
                 <h4 className="text-xl font-semibold text-chinese-red-dark mb-3 font-serif">飞机</h4>
+                <div className="relative h-48 overflow-hidden rounded-lg mb-4">
+                  <Image 
+                    src="/images/飞机交通示意图.jpg" 
+                    alt="飞机交通示意图" 
+                    fill 
+                    className="object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
                 <ul className="list-disc list-inside text-gray-600 space-y-2">
                   <li>主要国际机场：北京首都、上海浦东、广州白云、成都天府</li>
                   <li>国内航线覆盖所有省会城市和主要旅游城市</li>
@@ -45,6 +57,14 @@ export default function TransportPage() {
               </div>
               <div className="chinese-card p-6 hover:shadow-lg transition-shadow duration-300">
                 <h4 className="text-xl font-semibold text-chinese-red-dark mb-3 font-serif">火车</h4>
+                <div className="relative h-48 overflow-hidden rounded-lg mb-4">
+                  <Image 
+                    src="/images/火车交通示意图.jpg" 
+                    alt="火车交通示意图" 
+                    fill 
+                    className="object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
                 <ul className="list-disc list-inside text-gray-600 space-y-2">
                   <li>高铁网络：全球最长，覆盖大部分旅游城市</li>
                   <li>最高时速：350km/h，北京到上海仅需4.5小时</li>
@@ -54,6 +74,14 @@ export default function TransportPage() {
               </div>
               <div className="chinese-card p-6 hover:shadow-lg transition-shadow duration-300">
                 <h4 className="text-xl font-semibold text-chinese-red-dark mb-3 font-serif">汽车</h4>
+                <div className="relative h-48 overflow-hidden rounded-lg mb-4">
+                  <Image 
+                    src="/images/汽车交通示意图.jpg" 
+                    alt="汽车交通示意图" 
+                    fill 
+                    className="object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
                 <ul className="list-disc list-inside text-gray-600 space-y-2">
                   <li>高速公路里程：全球第一，超过16万公里</li>
                   <li>租车服务：各大城市均有连锁租车公司</li>
@@ -69,18 +97,50 @@ export default function TransportPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="chinese-card p-6 hover:shadow-lg transition-shadow duration-300">
                   <h4 className="font-semibold text-chinese-red-dark mb-2 font-serif">地铁</h4>
+                  <div className="relative h-32 overflow-hidden rounded-lg mb-3">
+                    <Image 
+                      src="/images/地铁.jpg" 
+                      alt="地铁" 
+                      fill 
+                      className="object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
                   <p className="text-gray-600">北京、上海、广州等大城市地铁网络发达，是最快捷的出行方式</p>
                 </div>
                 <div className="chinese-card p-6 hover:shadow-lg transition-shadow duration-300">
                   <h4 className="font-semibold text-chinese-red-dark mb-2 font-serif">公交</h4>
+                  <div className="relative h-32 overflow-hidden rounded-lg mb-3">
+                    <Image 
+                      src="/images/公交车.jpg" 
+                      alt="公交车" 
+                      fill 
+                      className="object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
                   <p className="text-gray-600">覆盖城市各个角落，价格便宜，适合深度游览</p>
                 </div>
                 <div className="chinese-card p-6 hover:shadow-lg transition-shadow duration-300">
                   <h4 className="font-semibold text-chinese-red-dark mb-2 font-serif">出租车</h4>
+                  <div className="relative h-32 overflow-hidden rounded-lg mb-3">
+                    <Image 
+                      src="/images/出租车.jpg" 
+                      alt="出租车" 
+                      fill 
+                      className="object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
                   <p className="text-gray-600">起步价10-15元，可使用滴滴等打车APP</p>
                 </div>
                 <div className="chinese-card p-6 hover:shadow-lg transition-shadow duration-300">
                   <h4 className="font-semibold text-chinese-red-dark mb-2 font-serif">共享单车</h4>
+                  <div className="relative h-32 overflow-hidden rounded-lg mb-3">
+                    <Image 
+                      src="/images/共享单车.jpg" 
+                      alt="共享单车" 
+                      fill 
+                      className="object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
                   <p className="text-gray-600">方便短途出行，扫码即可使用，价格低廉</p>
                 </div>
               </div>

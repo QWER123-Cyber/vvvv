@@ -3,11 +3,13 @@ import Image from 'next/image';
 
 export default function WuhanPage() {
   return (
-    <div className="min-h-screen bg-xuanzhi pt-20" style={{
-      backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23654321' fill-opacity='0.05'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+    <div className="min-h-screen pt-20" style={{
+      backgroundImage: `linear-gradient(135deg, rgba(255, 245, 238, 0.9) 0%, rgba(255, 222, 173, 0.8) 50%, rgba(224, 255, 255, 0.7) 100%), url('/images/背景图.jpg')`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center'
     }}>
       {/* 导航栏 */}
-      <nav className="bg-xuanzhi shadow-md border-b-2 border-chinese-gold fixed top-0 left-0 right-0 z-50">
+      <nav className="bg-cover bg-center bg-no-repeat shadow-md border-b-2 border-chinese-gold fixed top-0 left-0 right-0 z-50" style={{ backgroundImage: `url('/images/背景图.jpg')` }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
@@ -33,12 +35,12 @@ export default function WuhanPage() {
           
           <div className="chinese-card overflow-hidden">
             {/* 主图区域 */}
-            <div className="relative h-96 overflow-hidden">
+            <div className="relative h-96">
               <Image 
                 src="/images/黄鹤楼.jpg" 
                 alt="黄鹤楼" 
                 fill 
-                className="object-cover"
+                className="object-contain"
               />
             </div>
             
@@ -95,87 +97,45 @@ export default function WuhanPage() {
                 <h3 className="text-2xl font-bold text-chinese-red-dark mb-6 border-b-2 border-chinese-red pb-2 font-serif">千古绝唱 · 诗句名篇</h3>
                 
                 {/* 崔颢《黄鹤楼》 */}
-                <div className="mb-8 p-6 bg-xuanzhi rounded-lg border-l-4 border-chinese-red">
-                  <h4 className="text-xl font-bold text-chinese-red-dark mb-3 font-serif">崔颢《黄鹤楼》</h4>
-                  <p className="text-gray-700 text-lg mb-2 font-medium">
-                    昔人已乘黄鹤去，此地空余黄鹤楼。<br />
-                    黄鹤一去不复返，白云千载空悠悠。<br />
-                    晴川历历汉阳树，芳草萋萋鹦鹉洲。<br />
-                    日暮乡关何处是？烟波江上使人愁。
-                  </p>
-                  <p className="text-gray-600 italic mt-4">
-                    这首诗被誉为“唐人七律第一”，据说李白登黄鹤楼时看到此诗，感叹道：“眼前有景道不得，崔颢题诗在上头。”
-                  </p>
+                <div className="chinese-card p-6 mb-6 relative overflow-hidden">
+                  {/* 半透明背景图 */}
+                  <div className="absolute inset-0 opacity-20">
+                    <Image 
+                      src="/images/《黄鹤楼》 - 崔颢（唐）.jpg" 
+                      alt="《黄鹤楼》 - 崔颢（唐）" 
+                      fill 
+                      className="object-cover"
+                    />
+                  </div>
+                  {/* 文本内容 */}
+                  <div className="relative z-10">
+                    <h4 className="text-lg font-bold text-chinese-red-dark mb-3 font-serif">《黄鹤楼》 - 崔颢（唐）</h4>
+                    <div className="text-center text-xl font-serif leading-relaxed">
+                      <p>昔人已乘黄鹤去，此地空余黄鹤楼。</p>
+                      <p>黄鹤一去不复返，白云千载空悠悠。</p>
+                      <p>晴川历历汉阳树，芳草萋萋鹦鹉洲。</p>
+                      <p>日暮乡关何处是？烟波江上使人愁。</p>
+                    </div>
+                  </div>
                 </div>
                 
-                {/* 其他诗句 */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="p-5 chinese-card border-l-4 border-chinese-red">
-                    <h4 className="text-lg font-bold text-chinese-red-dark mb-3 font-serif">李白《黄鹤楼送孟浩然之广陵》</h4>
-                    <p className="text-gray-700">
-                      故人西辞黄鹤楼，烟花三月下扬州。<br />
-                      孤帆远影碧空尽，唯见长江天际流。
-                    </p>
+                {/* 李白《黄鹤楼送孟浩然之广陵》 */}
+                <div className="chinese-card p-6 relative overflow-hidden">
+                  {/* 半透明背景图 */}
+                  <div className="absolute inset-0 opacity-20">
+                    <Image 
+                      src="/images/《黄鹤楼送孟浩然之广陵》 - 李白（唐）.jpg" 
+                      alt="《黄鹤楼送孟浩然之广陵》 - 李白（唐）" 
+                      fill 
+                      className="object-cover"
+                    />
                   </div>
-                  
-                  <div className="p-5 chinese-card border-l-4 border-chinese-red">
-                    <h4 className="text-lg font-bold text-chinese-red-dark mb-3 font-serif">李白《与史郎中钦听黄鹤楼上吹笛》</h4>
-                    <p className="text-gray-700">
-                      一为迁客去长沙，西望长安不见家。<br />
-                      黄鹤楼中吹玉笛，江城五月落梅花。
-                    </p>
-                  </div>
-                  
-                  <div className="p-5 chinese-card border-l-4 border-chinese-red">
-                    <h4 className="text-lg font-bold text-chinese-red-dark mb-3 font-serif">白居易《卢侍御与崔评事为予于黄鹤楼置宴，宴罢同望》</h4>
-                    <p className="text-gray-700">
-                      江边黄鹤古时楼，劳置华筵待我游。<br />
-                      楚思淼茫云水冷，商声清脆管弦秋。<br />
-                      白花浪溅头陀寺，红叶林笼鹦鹉洲。
-                    </p>
-                  </div>
-                  
-                  <div className="p-5 chinese-card border-l-4 border-chinese-red">
-                    <h4 className="text-lg font-bold text-chinese-red-dark mb-3 font-serif">陆游《黄鹤楼》</h4>
-                    <p className="text-gray-700">
-                      苍龙阙角归何晚，黄鹤楼中醉不知。<br />
-                      汉江交流波渺渺，晋唐遗迹草离离。
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              {/* 名人名言 */}
-              <div className="mb-12">
-                <h3 className="text-2xl font-bold text-chinese-red-dark mb-6 border-b-2 border-chinese-red pb-2 font-serif">名人评说</h3>
-                <div className="space-y-5">
-                  <div className="flex items-start">
-                    <div className="text-4xl text-gray-400 mr-4">"</div>
-                    <div className="flex-1">
-                      <p className="text-gray-700 italic mb-2">
-                        黄鹤楼是中国古代建筑艺术的杰出代表，它不仅是一座楼，更是中华民族精神的象征。
-                      </p>
-                      <p className="text-right text-gray-500">— 建筑学家 梁思成</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="text-4xl text-gray-400 mr-4">"</div>
-                    <div className="flex-1">
-                      <p className="text-gray-700 italic mb-2">
-                        黄鹤楼的魅力不仅在于它的建筑之美，更在于它承载了千年的文化积淀和文人墨客的情怀。
-                      </p>
-                      <p className="text-right text-gray-500">— 文学家 余秋雨</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="text-4xl text-gray-400 mr-4">"</div>
-                    <div className="flex-1">
-                      <p className="text-gray-700 italic mb-2">
-                        登黄鹤楼，望长江，感受的是天地之辽阔，历史之悠远，文化之厚重。
-                      </p>
-                      <p className="text-right text-gray-500">— 诗人 余光中</p>
+                  {/* 文本内容 */}
+                  <div className="relative z-10">
+                    <h4 className="text-lg font-bold text-chinese-red-dark mb-3 font-serif">《黄鹤楼送孟浩然之广陵》 - 李白（唐）</h4>
+                    <div className="text-center text-xl font-serif leading-relaxed">
+                      <p>故人西辞黄鹤楼，烟花三月下扬州。</p>
+                      <p>孤帆远影碧空尽，唯见长江天际流。</p>
                     </div>
                   </div>
                 </div>
@@ -183,39 +143,131 @@ export default function WuhanPage() {
               
               {/* 建筑特色 */}
               <div className="mb-12">
-                <h3 className="text-2xl font-bold text-chinese-red-dark mb-4 border-b-2 border-chinese-red pb-2 font-serif">建筑特色</h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="chinese-card p-6 shadow-sm">
-                    <h4 className="text-lg font-bold text-chinese-red-dark mb-3 font-serif">结构设计</h4>
-                    <p className="text-gray-600">
-                      黄鹤楼内部由72根圆柱支撑，象征着黄鹤楼历经的72个春秋；外部有60个翘角向外伸展，寓意着天地六合。
+                <h3 className="text-2xl font-bold text-chinese-red-dark mb-6 border-b-2 border-chinese-red pb-2 font-serif">建筑特色与设计</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                    <p className="text-gray-600 mb-4 leading-relaxed">
+                      黄鹤楼采用了中国传统的木质结构形式，飞檐翘角，斗拱层叠，展现了中国古代建筑的精湛技艺。
+                      主楼五层，攒尖顶，层层飞檐，四望如一，楼体各层大小屋顶交错重叠，翘角飞举，仿佛一只展翅欲飞的黄鹤。
+                    </p>
+                    <p className="text-gray-600 leading-relaxed">
+                      楼内装饰精美，每层都有不同主题的展览，包括历史文物、书画作品、诗词碑刻等，展现了黄鹤楼深厚的文化底蕴。
+                      顶层设有观景台，可以俯瞰武汉市全景和长江的壮丽景色。
                     </p>
                   </div>
-                  
-                  <div className="chinese-card p-6 shadow-sm">
-                    <h4 className="text-lg font-bold text-chinese-red-dark mb-3 font-serif">外观装饰</h4>
-                    <p className="text-gray-600">
-                      屋面用10多万块黄色琉璃瓦覆盖，在阳光照耀下金碧辉煌。每层楼都有精美的木雕和壁画，展现了中国传统文化的精髓。
-                    </p>
-                  </div>
-                  
-                  <div className="chinese-card p-6 shadow-sm">
-                    <h4 className="text-lg font-bold text-chinese-red-dark mb-3 font-serif">地理位置</h4>
-                    <p className="text-gray-600">
-                      坐落在海拔61.7米的蛇山顶，京广铁路的列车从楼下呼啸而过。登楼远眺，可以看到武汉三镇的全貌和长江的壮丽景色。
-                    </p>
+                  <div className="chinese-card p-6">
+                    <h4 className="text-lg font-bold text-chinese-red-dark mb-3 font-serif">建筑数据</h4>
+                    <ul className="space-y-3 text-gray-600">
+                      <li className="flex justify-between">
+                        <span>高度：</span>
+                        <span className="font-bold">51.4米</span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span>层数：</span>
+                        <span className="font-bold">5层</span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span>建筑面积：</span>
+                        <span className="font-bold">3219平方米</span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span>屋顶形式：</span>
+                        <span className="font-bold">攒尖顶</span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span>重建年份：</span>
+                        <span className="font-bold">1985年</span>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
               
-              {/* 返回按钮 */}
-              <div className="text-center mt-12">
-                <Link 
-                  href="/" 
-                  className="chinese-button px-10"
-                >
-                  返回首页
-                </Link>
+              {/* 旅游信息 */}
+              <div className="chinese-card p-6">
+                <h3 className="text-2xl font-bold text-chinese-red-dark mb-6 border-b-2 border-chinese-red pb-2 font-serif">旅游信息</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  <div>
+                    <h4 className="text-lg font-bold text-chinese-red-dark mb-3 font-serif">开放时间</h4>
+                    <ul className="space-y-2 text-gray-600">
+                      <li>旺季（3月1日-11月30日）：</li>
+                      <li className="ml-4">8:00 - 18:30</li>
+                      <li>淡季（12月1日-2月28日）：</li>
+                      <li className="ml-4">8:30 - 17:30</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-chinese-red-dark mb-3 font-serif">门票信息</h4>
+                    <ul className="space-y-2 text-gray-600">
+                      <li>成人票：70元</li>
+                      <li>学生票：35元</li>
+                      <li>老年人票：35元（60岁以上）</li>
+                      <li>儿童票：免费（1.2米以下）</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-chinese-red-dark mb-3 font-serif">交通指南</h4>
+                    <ul className="space-y-2 text-gray-600">
+                      <li>公交：乘坐10、61、64、503、507等路公交车在黄鹤楼站下车</li>
+                      <li>地铁：乘坐地铁5号线在司门口黄鹤楼站下车</li>
+                      <li>自驾：黄鹤楼景区有停车场，但建议绿色出行</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* 武汉风光 */}
+        <section className="mb-16">
+          <h2 className="chinese-title mb-8 text-center">武汉风光</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* 武汉江滩 */}
+            <div className="chinese-card overflow-hidden group">
+              <div className="relative h-60 overflow-hidden">
+                <Image 
+                  src="/images/武汉江滩.jpg" 
+                  alt="武汉江滩" 
+                  fill 
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-4">
+                <h3 className="text-xl font-bold text-chinese-red-dark font-serif">武汉江滩</h3>
+                <p className="text-gray-600">长江武汉段的美丽江滩，是武汉市民休闲娱乐的好去处。</p>
+              </div>
+            </div>
+            
+            {/* 蛇山 */}
+            <div className="chinese-card overflow-hidden group">
+              <div className="relative h-60 overflow-hidden">
+                <Image 
+                  src="/images/蛇山.jpg" 
+                  alt="蛇山" 
+                  fill 
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-4">
+                <h3 className="text-xl font-bold text-chinese-red-dark font-serif">蛇山</h3>
+                <p className="text-gray-600">黄鹤楼所在地，武汉著名的风景名胜区。</p>
+              </div>
+            </div>
+            
+            {/* 晴川阁 */}
+            <div className="chinese-card overflow-hidden group">
+              <div className="relative h-60 overflow-hidden">
+                <Image 
+                  src="/images/晴川阁.jpg" 
+                  alt="晴川阁" 
+                  fill 
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-4">
+                <h3 className="text-xl font-bold text-chinese-red-dark font-serif">晴川阁</h3>
+                <p className="text-gray-600">武汉著名的古建筑，与黄鹤楼隔江相望。</p>
               </div>
             </div>
           </div>
@@ -243,9 +295,9 @@ export default function WuhanPage() {
             </div>
             <div>
               <h3 className="text-xl font-bold mb-4 font-serif">联系我们</h3>
-              <p className="text-gray-400 mb-2">电话：123-4567-8910</p>
-              <p className="text-gray-400 mb-2">邮箱：info@huangshan-tour.com</p>
-              <p className="text-gray-400">地址：安徽省黄山市黄山区汤口镇</p>
+              <p className="text-gray-400 mb-2">电话：0123-4567-8910</p>
+              <p className="text-gray-400 mb-2">邮箱：info@chinatourism.com</p>
+              <p className="text-gray-400">地址：湖北省武汉市武昌区蛇山</p>
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">

@@ -2,11 +2,14 @@ import Link from 'next/link';
 
 export default function ForbiddenCityPage() {
   return (
-    <div className="min-h-screen bg-xuanzhi" style={{
-      backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b7892b' fill-opacity='0.08'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+    <div className="min-h-screen pt-20" style={{
+      background: 'linear-gradient(135deg, #ffe0b2 0%, #ff9800 100%)',
+      backgroundImage: `url('/images/背景图.jpg')`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center'
     }}>
       {/* 导航栏 */}
-      <nav className="bg-xuanzhi shadow-md border-b-2 border-chinese-gold fixed top-0 left-0 right-0 z-50">
+      <nav className="bg-cover bg-center bg-no-repeat shadow-md fixed top-0 left-0 right-0 z-50 border-b-2 border-chinese-gold" style={{ backgroundImage: `url('/images/背景图.jpg')` }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between h-16">
               <div className="flex items-center">
@@ -30,22 +33,14 @@ export default function ForbiddenCityPage() {
       <div className="mt-16 relative">
         <div className="h-[600px] w-full overflow-hidden">
           <img 
-            src="/images/故宫午门.jpg" 
+            src="/images/故宫雪景.jpg" 
             alt="故宫博物院" 
-            className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-1000"
+            className="w-full h-full object-cover opacity-85 saturate-90 brightness-95"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent flex items-center justify-center">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-transparent flex items-center justify-center">
             <div className="text-center px-4">
               <h1 className="text-6xl md:text-7xl font-bold text-white mb-4 drop-shadow-lg animate-fade-in-up">故宫博物院</h1>
               <p className="text-2xl md:text-3xl text-white drop-shadow-md animate-fade-in-up delay-100">世界文化遗产 · 中国明清皇宫</p>
-              <div className="mt-8 animate-fade-in-up delay-200">
-                <Link 
-                  href="#introduction" 
-                  className="inline-block bg-red-700 hover:bg-red-800 text-white font-medium py-3 px-10 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-                >
-                  了解详情
-                </Link>
-              </div>
             </div>
           </div>
         </div>
@@ -278,6 +273,30 @@ export default function ForbiddenCityPage() {
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-chinese-red-dark mb-2 font-serif">钟表馆</h3>
                 <p className="text-gray-600 mb-4">收藏了众多精美绝伦的中外钟表，展现了古代工艺的精湛。</p>
+                <div className="flex items-center text-yellow-600">
+                  <span className="mr-1">⭐⭐⭐⭐</span>
+                  <span className="text-sm text-gray-500">(推荐景点)</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 中和殿 */}
+            <div className="chinese-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+              <div className="h-[200px] overflow-hidden">
+                <img 
+                  src="/images/斗拱.jpg" 
+                  alt="中和殿" 
+                  className="h-full w-full object-cover rounded-lg shadow-md transform group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <div className="p-4 text-white">
+                    <span className="inline-block bg-red-700 text-white px-3 py-1 rounded-full text-sm font-medium">过渡建筑</span>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-chinese-red-dark mb-2 group-hover:text-chinese-red transition-colors duration-300 font-serif">中和殿</h3>
+                <p className="text-gray-600 mb-4 line-clamp-3">皇帝在太和殿举行大典前休息和接受朝拜的地方，建筑风格独特，斗拱结构精美。</p>
                 <div className="flex items-center text-yellow-600">
                   <span className="mr-1">⭐⭐⭐⭐</span>
                   <span className="text-sm text-gray-500">(推荐景点)</span>

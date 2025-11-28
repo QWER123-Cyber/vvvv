@@ -2,6 +2,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export default function AttractionsPage() {
+  // 为景点详情页面添加山水主题背景
+  const pageStyle = {
+    backgroundImage: `linear-gradient(135deg, rgba(255, 245, 238, 0.9) 0%, rgba(255, 222, 173, 0.8) 50%, rgba(224, 255, 255, 0.7) 100%), url('/images/云海.jpg')`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center'
+  };
+  
   const attractions = [
     {
       id: 1,
@@ -27,20 +34,27 @@ export default function AttractionsPage() {
       image: '/images/黄鹤楼.jpg',
       story: '黄鹤楼，位于湖北省武汉市长江南岸的武昌蛇山之巅，享有“天下绝景”之称，是江南三大名楼之首。历代文人墨客在此留下了许多脍炙人口的诗篇，其中以唐代诗人崔颢的《黄鹤楼》最为著名：“昔人已乘黄鹤去，此地空余黄鹤楼。黄鹤一去不复返，白云千载空悠悠。”登上黄鹤楼，远眺长江滚滚东流，近观武汉三镇的繁华景象，让人感受到历史与现代的交融，自然与人文的和谐。'
     },
-    {
-      id: 5,
+    {      id: 5,
       name: '黄山云海 - 天地间的梦幻之境',
       image: '/images/云海.jpg',
       story: '黄山云海，是黄山四绝之一，也是黄山最具特色的景观之一。每当雨过天晴，黄山的山谷中就会升起层层云雾，如同大海的波涛般翻涌起伏。站在山峰之巅，俯瞰云海，仿佛置身于仙境之中。云海时而如棉絮般轻盈，时而如波涛般汹涌，时而如瀑布般倾泻而下，时而如群峰般连绵起伏。黄山云海的变幻莫测，让人感叹大自然的鬼斧神工，也让人感受到天地间的神奇与美丽。'
+    },
+    {      id: 6,
+      name: '黄山奇松 - 坚韧不拔的生命奇迹',
+      image: '/images/奇松.jpg',
+      story: '黄山奇松是黄山“四绝”之首，以其独特的形态和顽强的生命力著称。它们生长在悬崖峭壁之上，根系深深地扎入岩石缝隙，展现出坚韧不拔的生命力。黄山奇松形态各异，有的如迎客松般伸展双臂欢迎四海宾客，有的如黑虎松般雄伟苍劲，有的如连理松般相依相伴。每一棵奇松都有自己的故事，每一种形态都展现出大自然的神奇创造力。'
+    },
+    {      id: 7,
+      name: '黄山怪石 - 大自然的艺术杰作',
+      image: '/images/怪石.jpg',
+      story: '黄山怪石是黄山“四绝”之一，以其奇特的形状和丰富的想象力著称。它们或似人似物，或似鸟似兽，形态各异，栩栩如生。黄山怪石分布于山峰、山谷、悬崖等各个角落，有的如飞来石般凭空而立，有的如猴子观海般惟妙惟肖，有的如仙人指路般神秘莫测。这些怪石经过亿万年的风化和侵蚀，形成了独特的自然景观，让人流连忘返。'
     }
   ];
 
   return (
-    <div className="min-h-screen bg-xuanzhi pt-20" style={{
-      backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232e7d32' fill-opacity='0.06'%3E%3Cpath d='M30 38a6 6 0 0 0-6 6v42a6 6 0 0 0 6 6h42a6 6 0 0 0 6-6V44a6 6 0 0 0-6-6H30zm6 0a6 6 0 0 1 6-6h42a6 6 0 0 1 6 6v42a6 6 0 0 1-6 6H36a6 6 0 0 1-6-6V38z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-    }}>
+    <div className="min-h-screen pt-20" style={pageStyle}>
       {/* 导航栏 */}
-      <nav className="bg-xuanzhi shadow-md border-b-2 border-chinese-gold fixed top-0 left-0 right-0 z-50">
+      <nav className="bg-cover bg-center bg-no-repeat shadow-md border-b-2 border-chinese-gold fixed top-0 left-0 right-0 z-50" style={{ backgroundImage: `url('/images/背景图.jpg')` }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">

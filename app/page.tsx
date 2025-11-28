@@ -2,9 +2,9 @@ import Link from 'next/link';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-chinese-paper chinese-grid">
+    <div className="min-h-screen">
       {/* 导航栏 */}
-      <nav className="bg-chinese-ivory shadow-md fixed top-0 left-0 right-0 z-50 border-b-2 border-chinese-gold">
+      <nav className="bg-cover bg-center bg-no-repeat shadow-md fixed top-0 left-0 right-0 z-50 border-b-2 border-chinese-gold" style={{ backgroundImage: `url('/images/背景图.jpg')` }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
@@ -34,14 +34,6 @@ export default function HomePage() {
             <div className="text-center px-4">
               <h1 className="text-6xl md:text-7xl font-bold text-white mb-4 drop-shadow-lg animate-fade-in-up tracking-tight font-[var(--font-ma-shan-zheng)]">中国旅游文化网</h1>
               <p className="text-2xl md:text-3xl text-white drop-shadow-md animate-fade-in-up delay-100 max-w-3xl mx-auto font-[var(--font-noto-serif-sc)]">探索千年文明，感受壮丽山河</p>
-              <div className="mt-8 animate-fade-in-up delay-200">
-                <Link 
-                  href="/forbidden-city" 
-                  className="chinese-button"
-                >
-                  探索故宫
-                </Link>
-              </div>
             </div>
           </div>
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500"></div>
@@ -157,9 +149,11 @@ export default function HomePage() {
 
             <Link href="/attractions?spot=stone" className="block">
               <div className="chinese-card rounded-lg overflow-hidden">
-                <div className="h-48 bg-gray-200 relative">
-                  <div className="absolute inset-0 bg-[url('/images/怪石.jpg')] bg-cover bg-center"></div>
-                </div>
+                <img 
+                  src="/images/怪石.jpg" 
+                  alt="怪石" 
+                  className="h-48 w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
                 <div className="p-4">
                   <h3 className="text-xl font-semibold text-chinese-ink mb-2 font-[var(--font-ma-shan-zheng)]">怪石</h3>
                   <p className="text-chinese-ink">以奇取胜，以多著称。已被命名的怪石有120多处。</p>
@@ -169,9 +163,11 @@ export default function HomePage() {
 
             <Link href="/attractions?spot=sea-of-clouds" className="block">
               <div className="chinese-card rounded-lg overflow-hidden">
-                <div className="h-48 bg-gray-200 relative">
-                  <div className="absolute inset-0 bg-[url('/images/云海.jpg')] bg-cover bg-center"></div>
-                </div>
+                <img 
+                  src="/images/云海.jpg" 
+                  alt="云海" 
+                  className="h-48 w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
                 <div className="p-4">
                   <h3 className="text-xl font-semibold text-chinese-ink mb-2 font-[var(--font-ma-shan-zheng)]">云海</h3>
                   <p className="text-chinese-ink">自古黄山云成海，黄山是云雾之乡，以峰为体，以云为衣。</p>
@@ -189,7 +185,11 @@ export default function HomePage() {
           <div className="floral-divider mb-8"></div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="chinese-card rounded-lg overflow-hidden hover:-translate-y-1 ruyi-decoration">
-              <div className="h-40 bg-[url('/images/黄山.jpg')] bg-cover bg-center"></div>
+              <img 
+                src="/images/黄山.jpg" 
+                alt="黄山" 
+                className="h-40 w-full object-cover"
+              />
               <div className="p-6">
                 <div className="flex items-start">
                   <div className="bg-chinese-red/10 rounded-full p-3 mr-4">
@@ -206,18 +206,63 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <div className="h-40 bg-[url('/images/八达岭长城.jpg')] bg-cover bg-center"></div>
+            <div className="chinese-card rounded-lg overflow-hidden hover:-translate-y-1 ruyi-decoration">
+              <img 
+                src="/images/八达岭长城.jpg" 
+                alt="八达岭长城" 
+                className="h-40 w-full object-cover"
+              />
               <div className="p-6">
                 <div className="flex items-start">
                   <div className="bg-blue-100 rounded-full p-3 mr-4">
                     <span className="text-blue-600 text-xl font-bold">🚗</span>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-800 mb-2">交通指南</h3>
-                    <p className="text-gray-600 mb-4">黄山交通便利，可通过飞机、火车、汽车等多种方式到达。</p>
-                    <Link href="/transport" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-300">
+                    <h3 className="text-xl font-semibold text-chinese-ink mb-2 font-[var(--font-ma-shan-zheng)]">交通指南</h3>
+                    <p className="text-chinese-ink mb-4">黄山交通便利，可通过飞机、火车、汽车等多种方式到达。</p>
+                    <Link href="/transport" className="chinese-button">
                       了解更多
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="chinese-card rounded-lg overflow-hidden hover:-translate-y-1 ruyi-decoration md:col-span-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <img 
+                  src="/images/北京烤鸭.jpg" 
+                  alt="特色美食" 
+                  className="h-full w-full object-cover"
+                />
+                <div className="flex flex-col justify-center p-6">
+                  <div className="flex items-start mb-4">
+                    <div className="bg-green-100 rounded-full p-3 mr-4">
+                      <span className="text-green-600 text-xl font-bold">🏮</span>
+                    </div>
+                    <h3 className="text-2xl font-semibold text-chinese-ink mb-2 font-[var(--font-ma-shan-zheng)]">中国美食文化</h3>
+                  </div>
+                  <p className="text-chinese-ink mb-4">中国饮食文化博大精深，八大菜系各具特色，从北京烤鸭到四川火锅，从上海生煎包到广东早茶，每一道美食都蕴含着深厚的文化底蕴。</p>
+                  <div className="grid grid-cols-3 gap-4">
+                    <img 
+                      src="/images/上海生煎包.jpg" 
+                      alt="上海生煎包" 
+                      className="h-24 w-full object-cover rounded-lg"
+                    />
+                    <img 
+                      src="/images/火锅.jpg" 
+                      alt="火锅" 
+                      className="h-24 w-full object-cover rounded-lg"
+                    />
+                    <img 
+                      src="/images/美食.jpg" 
+                      alt="中国美食" 
+                      className="h-24 w-full object-cover rounded-lg"
+                    />
+                  </div>
+                  <div className="mt-6">
+                    <Link href="/food" className="chinese-button">
+                      探索更多美食
                     </Link>
                   </div>
                 </div>

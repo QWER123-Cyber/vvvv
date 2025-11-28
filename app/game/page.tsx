@@ -29,13 +29,7 @@ export default function MemoryGamePage() {
     { id: 3, name: '太和殿', image: '/images/太和殿.jpg' },
     { id: 4, name: '黄山', image: '/images/黄山.jpg' },
     { id: 5, name: '黄鹤楼', image: '/images/黄鹤楼.jpg' },
-    { id: 6, name: '御花园', image: '/images/御花园.jpg' },
-    { id: 7, name: '故宫雪景', image: '/images/故宫雪景.jpg' },
-    { id: 8, name: '故宫夜景', image: '/images/故宫夜景.jpg' },
-    { id: 9, name: '乾清宫', image: '/images/乾清宫.jpg' },
-    { id: 10, name: '金銮宝座', image: '/images/金銮宝座.jpg' },
-    { id: 11, name: '黄山奇松', image: '/images/奇松.jpg' },
-    { id: 12, name: '黄山怪石', image: '/images/怪石.jpg' },
+    { id: 6, name: '黄山云海', image: '/images/云海.jpg' },
   ];
 
   // 初始化游戏
@@ -231,11 +225,14 @@ export default function MemoryGamePage() {
   };
 
   return (
-    <div className="min-h-screen bg-xuanzhi pt-20" style={{
-      backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238bc34a' fill-opacity='0.06'%3E%3Cpath d='M66 64c-5.523 0-10-4.477-10-10s4.477-10 10-10 10 4.477 10 10-4.477 10-10 10zm0 8c7.732 0 14-6.268 14-14s-6.268-14-14-14-14 6.268-14 14 6.268 14 14 14zm-29.6 18.4l1.116-1.116L43.2 64H20c0 8.837 7.163 16 16 16h3.2l3.2 3.2-1.116 1.116C40.216 95.96 33.108 100 25.6 100c-13.255 0-24-10.745-24-24s10.745-24 24-24c7.508 0 14.616 4.04 18.4 10.4l1.116-1.116L47.6 40H25.6c-8.837 0-16-7.163-16-16S16.763 8 25.6 8s16 7.163 16 16c0 7.508-4.04 14.616-10.4 18.4l-3.2-3.2-1.116 1.116C33.108 44 40.216 40.04 47.6 40c13.255 0 24 10.745 24 24s-10.745 24-24 24c-7.508 0-14.616-4.04-18.4-10.4z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+    <div className="min-h-screen pt-20" style={{
+      background: 'linear-gradient(135deg, #f3e5f5 0%, #9c27b0 100%)',
+      backgroundImage: `url('/images/背景图.jpg')`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center'
     }}>
       {/* 导航栏 */}
-      <nav className="bg-xuanzhi shadow-md border-b-2 border-chinese-gold fixed top-0 left-0 right-0 z-50">
+      <nav className="bg-cover bg-center bg-no-repeat shadow-md border-b-2 border-chinese-gold fixed top-0 left-0 right-0 z-50" style={{ backgroundImage: `url('/images/背景图.jpg')` }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
