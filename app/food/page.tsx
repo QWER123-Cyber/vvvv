@@ -34,6 +34,14 @@ export default function FoodPage() {
           <div className="chinese-card p-8">
             <h3 className="text-2xl font-semibold text-chinese-red-dark mb-4 font-serif">中国美食文化</h3>
             <p className="text-gray-600 mb-6">中国美食历史悠久，菜系丰富多样，每个地区都有其独特的风味和特色小吃。</p>
+            {/* 中国美食主题图片 */}
+            <div className="relative h-64 overflow-hidden rounded-lg mb-8">
+              <img 
+                src="/images/中国美食.jpg" 
+                alt="中国美食" 
+                className="h-full w-full object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
               <div className="chinese-card p-6 hover:shadow-lg transition-shadow duration-300">
                 <h4 className="text-xl font-semibold text-chinese-red-dark mb-3 font-[var(--font-ma-shan-zheng)]">北京烤鸭</h4>
@@ -134,6 +142,28 @@ export default function FoodPage() {
                   />
                 </div>
                 <p className="text-gray-600">辽宁鸡架是东北地区的特色小吃，以其独特的腌制和烹饪方法而受到欢迎。</p>
+              </div>
+              <div className="chinese-card p-6 hover:shadow-lg transition-shadow duration-300">
+                <h4 className="text-xl font-semibold text-chinese-red-dark mb-3 font-[var(--font-ma-shan-zheng)]">四川火锅</h4>
+                <div className="h-40 overflow-hidden">
+                  <img 
+                    src="/images/火锅.jpg" 
+                    alt="四川火锅" 
+                    className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <p className="text-gray-600">四川火锅是中国著名的传统美食，以麻辣鲜香的味道和丰富的食材搭配而闻名。</p>
+              </div>
+              <div className="chinese-card p-6 hover:shadow-lg transition-shadow duration-300">
+                <h4 className="text-xl font-semibold text-chinese-red-dark mb-3 font-[var(--font-ma-shan-zheng)]">中国美食</h4>
+                <div className="h-40 overflow-hidden">
+                  <img 
+                    src="/images/中国美食.jpg" 
+                    alt="中国美食" 
+                    className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <p className="text-gray-600">中国美食文化博大精深，各地特色美食汇聚了中华饮食的精髓。</p>
               </div>
             </div>
             <Link 

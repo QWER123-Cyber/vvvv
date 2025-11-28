@@ -255,7 +255,7 @@ export default function HomePage() {
                       className="h-24 w-full object-cover rounded-lg"
                     />
                     <img 
-                      src="/images/美食.jpg" 
+                      src="/images/中国美食.jpg" 
                       alt="中国美食" 
                       className="h-24 w-full object-cover rounded-lg"
                     />
