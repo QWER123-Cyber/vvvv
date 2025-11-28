@@ -1,28 +1,333 @@
 @import "tailwindcss";
 
+/* 中国传统色彩变量 */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #faf8ef;
+  --foreground: #333333;
+  --chinese-red: #c62828;
+  --chinese-yellow: #ffd700;
+  --chinese-blue: #1565c0;
+  --chinese-green: #2e7d32;
+  --chinese-brown: #5d4037;
+  --chinese-gold: #b7892b;
+  --chinese-ink: #212121;
+  --chinese-paper: #f8f5e6;
+  --chinese-ivory: #fff8e1;
+  --chinese-silver: #c0c0c0;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-chinese-red: var(--chinese-red);
+  --color-chinese-yellow: var(--chinese-yellow);
+  --color-chinese-blue: var(--chinese-blue);
+  --color-chinese-green: var(--chinese-green);
+  --color-chinese-brown: var(--chinese-brown);
+  --color-chinese-gold: var(--chinese-gold);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* 中国传统纹样背景 */
+body {
+  background: var(--chinese-paper);
+  color: var(--chinese-ink);
+  font-family: 'Noto Serif SC', 'SimSun', serif;
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.03) 1px, transparent 0);
+  background-size: 20px 20px;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* 中国传统云纹背景 */
+.cloud-pattern {
+  background-image: 
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M20,80 Q30,70 40,80 Q50,90 60,80 Q70,70 80,80 Q90,90 100,80' fill='none' stroke='%23c62828' stroke-width='0.5' opacity='0.3'/%3E%3Cpath d='M0,70 Q10,60 20,70 Q30,80 40,70 Q50,60 60,70 Q70,80 80,70 Q90,60 100,70' fill='none' stroke='%23c62828' stroke-width='0.5' opacity='0.3'/%3E%3C/svg%3E");
+  background-size: 50px 50px;
+}
+
+/* 中国传统回纹边框 */
+.huiwen-border {
+  border: 2px solid var(--chinese-gold);
+  background-color: white;
+  position: relative;
+}
+
+.huiwen-border::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background-image: 
+    repeating-linear-gradient(45deg, var(--chinese-red) 0, var(--chinese-red) 2px, transparent 2px, transparent 4px),
+    repeating-linear-gradient(-45deg, var(--chinese-red) 0, var(--chinese-red) 2px, transparent 2px, transparent 4px);
+  z-index: -1;
+}
+
+/* 中国传统如意纹装饰 */
+.ruyi-decoration {
+  position: relative;
+  padding: 20px;
+}
+
+.ruyi-decoration::before {
+  content: '☯';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--chinese-paper);
+  padding: 0 10px;
+  color: var(--chinese-gold);
+  font-size: 24px;
+}
+
+/* 中国传统花纹分隔线 */
+.floral-divider {
+  height: 20px;
+  background-image: 
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='20' viewBox='0 0 100 20'%3E%3Cpath d='M0,10 Q25,0 50,10 Q75,20 100,10' fill='none' stroke='%23b7892b' stroke-width='1'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 50px 20px;
+  margin: 20px 0;
+}
+
+/* 中国风边框装饰 */
+.chinese-border {
+  border: 2px solid var(--chinese-red);
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.chinese-border::before, .chinese-border::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--chinese-red);
+}
+
+.chinese-border::before {
+  top: -10px;
+  left: -10px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.chinese-border::after {
+  bottom: -10px;
+  right: -10px;
+  border-left: none;
+  border-top: none;
+}
+
+/* 中国风标题样式 */
+.chinese-title {
+  font-family: 'Ma Shan Zheng', cursive, 'Noto Serif SC', serif;
+  color: var(--chinese-red);
+  text-align: center;
+  position: relative;
+  display: inline-block;
+}
+
+.chinese-title::before, .chinese-title::after {
+  content: '❖';
+  color: var(--chinese-gold);
+  margin: 0 10px;
+}
+
+/* 中国风按钮样式 */
+.chinese-button {
+  background-color: var(--chinese-red);
+  color: white;
+  border: 2px solid var(--chinese-gold);
+  padding: 10px 20px;
+  border-radius: 0;
+  font-family: 'Noto Serif SC', serif;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.chinese-button:hover {
+  background-color: var(--chinese-gold);
+  color: var(--chinese-ink);
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* 中国风分隔线 */
+.chinese-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--chinese-red), transparent);
+  position: relative;
+}
+
+.chinese-divider::after {
+  content: '✦';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--chinese-paper);
+  padding: 0 20px;
+  color: var(--chinese-gold);
+  font-size: 18px;
+}
+
+/* 中国风卡片样式 */
+.chinese-card {
+  background: white;
+  border: 1px solid var(--chinese-gold);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.chinese-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* 中国风卷轴效果 */
+.scroll-effect {
+  background-color: var(--chinese-paper);
+  border: 2px solid var(--chinese-brown);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-effect::before, .scroll-effect::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  background-color: var(--chinese-brown);
+  left: 0;
+}
+
+.scroll-effect::before {
+  top: 0;
+  background: linear-gradient(to bottom, var(--chinese-brown), transparent);
+}
+
+.scroll-effect::after {
+  bottom: 0;
+  background: linear-gradient(to top, var(--chinese-brown), transparent);
+}
+
+/* 增强版卷轴效果 */
+.enhanced-scroll-effect {
+  background-color: var(--chinese-paper);
+  border: 2px solid var(--chinese-red);
+  padding: 20px;
+  position: relative;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.enhanced-scroll-effect::before, .enhanced-scroll-effect::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--chinese-gold);
+  border-radius: 50%;
+  box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.enhanced-scroll-effect::before {
+  left: -15px;
+}
+
+.enhanced-scroll-effect::after {
+  right: -15px;
+}
+
+/* 中国风印章效果 */
+.seal {
+  display: inline-block;
+  padding: 5px 15px;
+  background-color: var(--chinese-red);
+  color: white;
+  border-radius: 0;
+  font-family: 'Ma Shan Zheng', cursive;
+  font-size: 14px;
+  transform: rotate(-5deg);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* 圆形印章效果 */
+.round-seal {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  background-color: var(--chinese-red);
+  color: white;
+  border-radius: 50%;
+  font-family: 'Ma Shan Zheng', cursive;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.2;
+  border: 3px solid var(--chinese-gold);
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+  transform: rotate(5deg);
+}
+
+/* 中国传统灯笼装饰 */
+.lantern-decoration {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 60px;
+  background-color: var(--chinese-red);
+  border-radius: 20px 20px 0 0;
+  margin: 0 10px;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.lantern-decoration::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  background-color: var(--chinese-yellow);
+  border-radius: 15px 15px 0 0;
+  opacity: 0.8;
+}
+
+.lantern-decoration::after {
+  content: '福';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--chinese-red);
+  font-family: 'Ma Shan Zheng', cursive;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* 中国风文字阴影 */
+.chinese-text-shadow {
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* 中国风网格背景 */
+.chinese-grid {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
 /* 卡片翻转效果所需样式 */

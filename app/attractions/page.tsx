@@ -36,21 +36,23 @@ export default function AttractionsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
+    <div className="min-h-screen bg-xuanzhi pt-20" style={{
+      backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232e7d32' fill-opacity='0.06'%3E%3Cpath d='M30 38a6 6 0 0 0-6 6v42a6 6 0 0 0 6 6h42a6 6 0 0 0 6-6V44a6 6 0 0 0-6-6H30zm6 0a6 6 0 0 1 6-6h42a6 6 0 0 1 6 6v42a6 6 0 0 1-6 6H36a6 6 0 0 1-6-6V38z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+    }}>
       {/* 导航栏 */}
-      <nav className="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
+      <nav className="bg-xuanzhi shadow-md border-b-2 border-chinese-gold fixed top-0 left-0 right-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-red-800">中国旅游景点</span>
+              <span className="text-2xl font-bold text-chinese-red font-serif">中国旅游景点</span>
             </div>
             <div className="flex items-center space-x-4">
-              <Link href="/" className="text-gray-700 hover:text-red-600 font-medium">首页</Link>
-              <Link href="/attractions" className="text-gray-700 hover:text-red-600 font-medium">景点详情</Link>
-              <Link href="/food" className="text-gray-700 hover:text-red-600 font-medium">美食推荐</Link>
-              <Link href="/transport" className="text-gray-700 hover:text-red-600 font-medium">交通指南</Link>
-              <Link href="/wuhan" className="text-gray-700 hover:text-red-600 font-medium">黄鹤楼</Link>
-              <Link href="/game" className="text-gray-700 hover:text-red-600 font-medium">翻牌游戏</Link>
+              <Link href="/" className="text-gray-700 hover:text-chinese-red font-medium">首页</Link>
+              <Link href="/attractions" className="text-gray-700 hover:text-chinese-red font-medium">景点详情</Link>
+              <Link href="/food" className="text-gray-700 hover:text-chinese-red font-medium">美食推荐</Link>
+              <Link href="/transport" className="text-gray-700 hover:text-chinese-red font-medium">交通指南</Link>
+              <Link href="/wuhan" className="text-gray-700 hover:text-chinese-red font-medium">黄鹤楼</Link>
+              <Link href="/game" className="text-gray-700 hover:text-chinese-red font-medium">翻牌游戏</Link>
             </div>
           </div>
         </div>
@@ -59,12 +61,12 @@ export default function AttractionsPage() {
       {/* 主要内容 */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">中国著名景点故事</h2>
+          <h2 className="chinese-title mb-8 text-center">中国著名景点故事</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {attractions.map((attraction) => (
               <div 
                 key={attraction.id} 
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                className="chinese-card overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="relative h-64 overflow-hidden">
                   <Image 
@@ -75,7 +77,7 @@ export default function AttractionsPage() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">{attraction.name}</h3>
+                  <h3 className="text-xl font-bold text-chinese-red-dark mb-3 font-serif">{attraction.name}</h3>
                   <p className="text-gray-600 leading-relaxed">{attraction.story}</p>
                 </div>
               </div>
@@ -86,7 +88,7 @@ export default function AttractionsPage() {
         <section className="mb-16 text-center">
           <Link 
             href="/" 
-            className="inline-block bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg" 
+            className="chinese-button" 
           >
             返回首页
           </Link>
@@ -94,17 +96,17 @@ export default function AttractionsPage() {
       </main>
 
       {/* 页脚 */}
-      <footer className="bg-gray-800 text-white py-12">
+      <footer className="bg-chinese-red-dark text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">中国旅游景点</h3>
+              <h3 className="text-xl font-bold mb-4 font-serif">中国旅游景点</h3>
               <p className="text-gray-400">
                 提供中国著名旅游景点的详细介绍，包括历史文化、景点特色、旅游信息等。
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-4">快速链接</h3>
+              <h3 className="text-xl font-bold mb-4 font-serif">快速链接</h3>
               <ul className="space-y-2">
                 <li><Link href="/" className="text-gray-400 hover:text-white transition-colors duration-300">首页</Link></li>
                 <li><Link href="/attractions" className="text-gray-400 hover:text-white transition-colors duration-300">景点详情</Link></li>
@@ -113,7 +115,7 @@ export default function AttractionsPage() {
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-4">联系我们</h3>
+              <h3 className="text-xl font-bold mb-4 font-serif">联系我们</h3>
               <p className="text-gray-400 mb-2">电话：123-4567-8910</p>
               <p className="text-gray-400 mb-2">邮箱：info@huangshan-tour.com</p>
               <p className="text-gray-400">地址：安徽省黄山市黄山区汤口镇</p>

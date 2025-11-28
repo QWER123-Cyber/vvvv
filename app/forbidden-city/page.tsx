@@ -2,23 +2,25 @@ import Link from 'next/link';
 
 export default function ForbiddenCityPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <div className="min-h-screen bg-xuanzhi" style={{
+      backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b7892b' fill-opacity='0.08'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+    }}>
       {/* 导航栏 */}
-      <nav className="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
+      <nav className="bg-xuanzhi shadow-md border-b-2 border-chinese-gold fixed top-0 left-0 right-0 z-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between h-16">
               <div className="flex items-center">
-                <span className="text-2xl font-bold text-red-800">故宫博物院</span>
+                <span className="text-2xl font-bold text-chinese-red font-serif">故宫博物院</span>
               </div>
               <div className="flex items-center space-x-6">
-                <Link href="/" className="text-gray-600 hover:text-red-700 font-medium">网站首页</Link>
-                <Link href="/forbidden-city" className="text-red-700 hover:text-red-800 font-medium">故宫首页</Link>
-                <Link href="#introduction" className="text-gray-600 hover:text-red-700 font-medium">景点简介</Link>
-                <Link href="#history" className="text-gray-600 hover:text-red-700 font-medium">历史沿革</Link>
-                <Link href="#attractions" className="text-gray-600 hover:text-red-700 font-medium">主要景点</Link>
-                <Link href="#beauty" className="text-gray-600 hover:text-red-700 font-medium">故宫之美</Link>
-                <Link href="#experience" className="text-gray-600 hover:text-red-700 font-medium">特色体验</Link>
-                <Link href="#visit-info" className="text-gray-600 hover:text-red-700 font-medium">旅游信息</Link>
+                <Link href="/" className="text-gray-600 hover:text-chinese-red font-medium">网站首页</Link>
+                <Link href="/forbidden-city" className="text-chinese-red hover:text-chinese-red-dark font-medium">故宫首页</Link>
+                <Link href="#introduction" className="text-gray-600 hover:text-chinese-red font-medium">景点简介</Link>
+                <Link href="#history" className="text-gray-600 hover:text-chinese-red font-medium">历史沿革</Link>
+                <Link href="#attractions" className="text-gray-600 hover:text-chinese-red font-medium">主要景点</Link>
+                <Link href="#beauty" className="text-gray-600 hover:text-chinese-red font-medium">故宫之美</Link>
+                <Link href="#experience" className="text-gray-600 hover:text-chinese-red font-medium">特色体验</Link>
+                <Link href="#visit-info" className="text-gray-600 hover:text-chinese-red font-medium">旅游信息</Link>
               </div>
             </div>
           </div>
@@ -53,8 +55,8 @@ export default function ForbiddenCityPage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* 景点简介 */}
         <section id="introduction" className="mb-20">
-          <h2 className="text-4xl font-bold text-gray-800 mb-10 text-center">故宫简介</h2>
-          <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col md:flex-row items-center gap-8">
+          <h2 className="chinese-title mb-10 text-center">故宫简介</h2>
+          <div className="chinese-card p-8 flex flex-col md:flex-row items-center gap-8">
             <div className="md:w-1/2">
               <img 
               src="/images/故宫午门.jpg" 
@@ -78,8 +80,8 @@ export default function ForbiddenCityPage() {
 
         {/* 历史沿革 */}
         <section id="history" className="mb-20">
-          <h2 className="text-4xl font-bold text-gray-800 mb-10 text-center">历史沿革</h2>
-          <div className="bg-white rounded-xl shadow-lg p-8">
+          <h2 className="chinese-title mb-10 text-center">历史沿革</h2>
+          <div className="chinese-card p-8">
             <div className="space-y-8">
               {/* 明朝时期 */}
               <div className="flex flex-col md:flex-row gap-6 items-center">
@@ -91,7 +93,7 @@ export default function ForbiddenCityPage() {
                 />
                 </div>
                 <div className="md:w-2/3">
-                  <h3 className="text-2xl font-semibold text-gray-800 mb-3">明朝时期（1406-1644）</h3>
+                  <h3 className="text-2xl font-semibold text-chinese-red mb-3 font-serif">明朝时期（1406-1644）</h3>
                   <p className="text-gray-700 leading-relaxed">
                     明成祖朱棣在永乐四年（1406年）下令营建紫禁城，以南京故宫为蓝本，历时14年建成。明朝共有14位皇帝在此居住和执政，见证了明朝的兴衰荣辱。
                   </p>
@@ -108,7 +110,7 @@ export default function ForbiddenCityPage() {
                 />
                 </div>
                 <div className="md:w-2/3">
-                  <h3 className="text-2xl font-semibold text-gray-800 mb-3">清朝时期（1644-1912）</h3>
+                  <h3 className="text-2xl font-semibold text-chinese-red mb-3 font-serif">清朝时期（1644-1912）</h3>
                   <p className="text-gray-700 leading-relaxed">
                     清朝入关后，顺治皇帝成为紫禁城的第一位清朝皇帝。清朝共有10位皇帝在此居住，包括康乾盛世的缔造者康熙、雍正、乾隆三位皇帝。
                   </p>
@@ -125,7 +127,7 @@ export default function ForbiddenCityPage() {
                 />
                 </div>
                 <div className="md:w-2/3">
-                  <h3 className="text-2xl font-semibold text-gray-800 mb-3">现代时期（1912至今）</h3>
+                  <h3 className="text-2xl font-semibold text-chinese-red mb-3 font-serif">现代时期（1912至今）</h3>
                   <p className="text-gray-700 leading-relaxed">
                     1912年，溥仪退位，清朝结束。1925年，故宫博物院成立，对公众开放。经过多次修缮和扩建，如今的故宫博物院已成为世界著名的文化遗产和旅游胜地。
                   </p>
@@ -137,10 +139,10 @@ export default function ForbiddenCityPage() {
 
         {/* 主要景点 */}
         <section id="attractions" className="mb-20">
-          <h2 className="text-4xl font-bold text-gray-800 mb-10 text-center">主要景点</h2>
+          <h2 className="chinese-title mb-10 text-center">主要景点</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* 太和殿 */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+            <div className="chinese-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
               <div className="h-[200px] overflow-hidden">
                 <img 
                   src="/images/太和殿.jpg" 
@@ -154,7 +156,7 @@ export default function ForbiddenCityPage() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-800 mb-2 group-hover:text-red-700 transition-colors duration-300">太和殿</h3>
+                <h3 className="text-xl font-semibold text-chinese-red-dark mb-2 group-hover:text-chinese-red transition-colors duration-300 font-serif">太和殿</h3>
                 <p className="text-gray-600 mb-4 line-clamp-3">故宫最大的宫殿，明清皇帝举行大典的地方，俗称“金銮殿”。</p>
                 <div className="flex items-center text-yellow-600">
                   <span className="mr-1">⭐⭐⭐⭐⭐</span>
@@ -164,7 +166,7 @@ export default function ForbiddenCityPage() {
             </div>
 
             {/* 中和殿 */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+            <div className="chinese-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
               <div className="h-[200px] overflow-hidden">
                 <img 
                   src="/images/斗拱.jpg" 
@@ -178,7 +180,7 @@ export default function ForbiddenCityPage() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-800 mb-2 group-hover:text-red-700 transition-colors duration-300">中和殿</h3>
+                <h3 className="text-xl font-semibold text-chinese-red-dark mb-2 group-hover:text-chinese-red transition-colors duration-300 font-serif">中和殿</h3>
                 <p className="text-gray-600 mb-4 line-clamp-3">皇帝在太和殿举行大典前休息和接受朝拜的地方。</p>
                 <div className="flex items-center text-yellow-600">
                   <span className="mr-1">⭐⭐⭐⭐</span>
@@ -188,7 +190,7 @@ export default function ForbiddenCityPage() {
             </div>
 
             {/* 保和殿 */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+            <div className="chinese-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
               <div className="h-[200px] overflow-hidden">
                 <img 
                   src="/images/金銮宝座.jpg" 
@@ -202,7 +204,7 @@ export default function ForbiddenCityPage() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-800 mb-2 group-hover:text-red-700 transition-colors duration-300">保和殿</h3>
+                <h3 className="text-xl font-semibold text-chinese-red-dark mb-2 group-hover:text-chinese-red transition-colors duration-300 font-serif">保和殿</h3>
                 <p className="text-gray-600 mb-4 line-clamp-3">皇帝举行殿试和宴请外藩使节的地方。</p>
                 <div className="flex items-center text-yellow-600">
                   <span className="mr-1">⭐⭐⭐⭐</span>
@@ -212,7 +214,7 @@ export default function ForbiddenCityPage() {
             </div>
 
             {/* 乾清宫 */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+            <div className="chinese-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
               <div className="h-[200px] overflow-hidden">
                 <img 
                   src="/images/乾清宫.jpg" 
@@ -226,7 +228,7 @@ export default function ForbiddenCityPage() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">乾清宫</h3>
+                <h3 className="text-xl font-semibold text-chinese-red-dark mb-2 font-serif">乾清宫</h3>
                 <p className="text-gray-600 mb-4">明清皇帝居住的正宫，“正大光明”匾额悬挂于此。</p>
                 <div className="flex items-center text-yellow-600">
                   <span className="mr-1">⭐⭐⭐⭐</span>
@@ -236,7 +238,7 @@ export default function ForbiddenCityPage() {
             </div>
 
             {/* 御花园 */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+            <div className="chinese-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
               <div className="h-[200px] overflow-hidden">
                 <img 
                   src="/images/御花园.jpg" 
@@ -250,7 +252,7 @@ export default function ForbiddenCityPage() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">御花园</h3>
+                <h3 className="text-xl font-semibold text-chinese-red-dark mb-2 font-serif">御花园</h3>
                 <p className="text-gray-600 mb-4">皇帝和后妃游乐的地方，保存了众多古木和奇石。</p>
                 <div className="flex items-center text-yellow-600">
                   <span className="mr-1">⭐⭐⭐⭐</span>
@@ -260,7 +262,7 @@ export default function ForbiddenCityPage() {
             </div>
 
             {/* 钟表馆 */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+            <div className="chinese-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
               <div className="h-[200px] overflow-hidden">
                 <img 
                   src="/images/金銮宝座.jpg" 
@@ -274,7 +276,7 @@ export default function ForbiddenCityPage() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">钟表馆</h3>
+                <h3 className="text-xl font-semibold text-chinese-red-dark mb-2 font-serif">钟表馆</h3>
                 <p className="text-gray-600 mb-4">收藏了众多精美绝伦的中外钟表，展现了古代工艺的精湛。</p>
                 <div className="flex items-center text-yellow-600">
                   <span className="mr-1">⭐⭐⭐⭐</span>
@@ -287,19 +289,19 @@ export default function ForbiddenCityPage() {
 
         {/* 故宫之美 */}
         <section id="beauty" className="mb-20">
-          <h2 className="text-4xl font-bold text-gray-800 mb-10 text-center">故宫之美</h2>
+          <h2 className="chinese-title mb-10 text-center">故宫之美</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div className="chinese-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
               <div className="h-80 bg-[url('/images/故宫雪景.jpg')] bg-cover bg-center"></div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">故宫雪景</h3>
+                <h3 className="text-xl font-semibold text-chinese-red-dark mb-2 font-serif">故宫雪景</h3>
                 <p className="text-gray-600">雪后的故宫银装素裹，红墙黄瓦与白雪交相辉映，呈现出一种静谧而庄严的美，仿佛穿越回了明清时代。</p>
               </div>
             </div>
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div className="chinese-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
               <div className="h-80 bg-[url('/images/故宫夜景.jpg')] bg-cover bg-center"></div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">故宫夜景</h3>
+                <h3 className="text-xl font-semibold text-chinese-red-dark mb-2 font-serif">故宫夜景</h3>
                 <p className="text-gray-600">夜晚的故宫灯火辉煌，古老的建筑在现代灯光的映衬下焕发出新的生机，展现出与白天截然不同的神秘魅力。</p>
               </div>
             </div>
@@ -308,9 +310,9 @@ export default function ForbiddenCityPage() {
 
         {/* 特色体验 */}
         <section id="experience" className="mb-20">
-          <h2 className="text-4xl font-bold text-gray-800 mb-10 text-center">特色体验</h2>
+          <h2 className="chinese-title mb-10 text-center">特色体验</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div className="chinese-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
               <div className="h-40 bg-[url('/images/太和殿.jpg')] bg-cover bg-center"></div>
               <div className="p-6 border-l-4 border-red-600">
                 <div className="flex items-start gap-4">
@@ -318,14 +320,14 @@ export default function ForbiddenCityPage() {
                     <span className="text-red-600 text-2xl">📸</span>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-800 mb-2">摄影打卡</h3>
+                    <h3 className="text-xl font-semibold text-chinese-red-dark mb-2 font-serif">摄影打卡</h3>
                     <p className="text-gray-600">在故宫的红墙黄瓦间留下美好瞬间，太和殿、角楼都是绝佳的摄影地点。</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div className="chinese-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
               <div className="h-40 bg-[url('/images/金銮宝座.jpg')] bg-cover bg-center"></div>
               <div className="p-6 border-l-4 border-blue-600">
                 <div className="flex items-start gap-4">
@@ -333,14 +335,14 @@ export default function ForbiddenCityPage() {
                     <span className="text-blue-600 text-2xl">🎨</span>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-800 mb-2">文创体验</h3>
+                    <h3 className="text-xl font-semibold text-chinese-red-dark mb-2 font-serif">文创体验</h3>
                     <p className="text-gray-600">购买故宫特色文创产品，如口红、笔记本、印章等，把故宫文化带回家。</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div className="chinese-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
               <div className="h-40 bg-[url('/images/御花园.jpg')] bg-cover bg-center"></div>
               <div className="p-6 border-l-4 border-green-600">
                 <div className="flex items-start gap-4">
@@ -348,14 +350,14 @@ export default function ForbiddenCityPage() {
                     <span className="text-green-600 text-2xl">🍵</span>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-800 mb-2">品茶赏景</h3>
+                    <h3 className="text-xl font-semibold text-chinese-red-dark mb-2 font-serif">品茶赏景</h3>
                     <p className="text-gray-600">在故宫内的茶馆品尝传统名茶，一边休息一边欣赏皇家园林的美景。</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div className="chinese-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
               <div className="h-40 bg-[url('/images/明宫城图.jpg')] bg-cover bg-center"></div>
               <div className="p-6 border-l-4 border-purple-600">
                 <div className="flex items-start gap-4">
@@ -363,7 +365,7 @@ export default function ForbiddenCityPage() {
                     <span className="text-purple-600 text-2xl">🎭</span>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-800 mb-2">宫廷文化体验</h3>
+                    <h3 className="text-xl font-semibold text-chinese-red-dark mb-2 font-serif">宫廷文化体验</h3>
                     <p className="text-gray-600">参加故宫举办的传统文化活动，如书法、绘画、刺绣等，感受宫廷文化的魅力。</p>
                   </div>
                 </div>
@@ -374,12 +376,12 @@ export default function ForbiddenCityPage() {
 
         {/* 旅游信息 */}
         <section id="visit-info" className="mb-20">
-          <h2 className="text-4xl font-bold text-gray-800 mb-10 text-center">旅游信息</h2>
-          <div className="bg-white rounded-xl shadow-lg p-8">
+          <h2 className="chinese-title mb-10 text-center">旅游信息</h2>
+          <div className="chinese-card p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* 开放时间 */}
               <div>
-                <h3 className="text-2xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                <h3 className="text-2xl font-semibold text-chinese-red-dark mb-4 flex items-center gap-2 font-serif">
                   <span className="text-red-600">⏰</span>
                   开放时间
                 </h3>
@@ -466,13 +468,13 @@ export default function ForbiddenCityPage() {
 
         {/* 预约按钮 */}
         <section className="text-center mb-20">
-          <h2 className="text-3xl font-bold text-gray-800 mb-6">立即预约参观</h2>
+          <h2 className="text-3xl font-bold text-chinese-red-dark mb-6 font-serif">立即预约参观</h2>
           <p className="text-gray-600 mb-8">故宫博物院实行全网预约制度，请提前在官网或官方APP预约购票</p>
           <Link 
             href="https://gugong.228.com.cn/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-block bg-red-700 hover:bg-red-800 text-white font-medium py-3 px-10 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            className="chinese-button"
           >
             官网预约购票
           </Link>
@@ -480,17 +482,17 @@ export default function ForbiddenCityPage() {
       </main>
 
       {/* 页脚 */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-chinese-red-dark text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">故宫博物院</h3>
+              <h3 className="text-xl font-bold mb-4 font-serif">故宫博物院</h3>
               <p className="text-gray-400">
                 世界文化遗产，中国明清两代的皇家宫殿，世界五大宫之一。
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-4">快速链接</h3>
+              <h3 className="text-xl font-bold mb-4 font-serif">快速链接</h3>
               <ul className="space-y-2">
                 <li><Link href="#introduction" className="text-gray-400 hover:text-white transition-colors duration-300">景点简介</Link></li>
                 <li><Link href="#history" className="text-gray-400 hover:text-white transition-colors duration-300">历史沿革</Link></li>
@@ -500,7 +502,7 @@ export default function ForbiddenCityPage() {
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-4">联系方式</h3>
+              <h3 className="text-xl font-bold mb-4 font-serif">联系方式</h3>
               <ul className="space-y-2 text-gray-400">
                 <li className="flex items-center gap-2">
                   <span>📍</span>
@@ -521,7 +523,7 @@ export default function ForbiddenCityPage() {
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-4">社交媒体</h3>
+              <h3 className="text-xl font-bold mb-4 font-serif">社交媒体</h3>
               <div className="flex space-x-4">
                 <Link href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
                   <span className="text-2xl">📘</span>

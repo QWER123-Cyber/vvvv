@@ -231,21 +231,23 @@ export default function MemoryGamePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-100 pt-20">
+    <div className="min-h-screen bg-xuanzhi pt-20" style={{
+      backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238bc34a' fill-opacity='0.06'%3E%3Cpath d='M66 64c-5.523 0-10-4.477-10-10s4.477-10 10-10 10 4.477 10 10-4.477 10-10 10zm0 8c7.732 0 14-6.268 14-14s-6.268-14-14-14-14 6.268-14 14 6.268 14 14 14zm-29.6 18.4l1.116-1.116L43.2 64H20c0 8.837 7.163 16 16 16h3.2l3.2 3.2-1.116 1.116C40.216 95.96 33.108 100 25.6 100c-13.255 0-24-10.745-24-24s10.745-24 24-24c7.508 0 14.616 4.04 18.4 10.4l1.116-1.116L47.6 40H25.6c-8.837 0-16-7.163-16-16S16.763 8 25.6 8s16 7.163 16 16c0 7.508-4.04 14.616-10.4 18.4l-3.2-3.2-1.116 1.116C33.108 44 40.216 40.04 47.6 40c13.255 0 24 10.745 24 24s-10.745 24-24 24c-7.508 0-14.616-4.04-18.4-10.4z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+    }}>
       {/* 导航栏 */}
-      <nav className="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
+      <nav className="bg-xuanzhi shadow-md border-b-2 border-chinese-gold fixed top-0 left-0 right-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-red-800">中国旅游景点</span>
+              <span className="text-2xl font-bold text-chinese-red font-serif">中国旅游景点</span>
             </div>
             <div className="flex items-center space-x-4">
-              <Link href="/" className="text-gray-700 hover:text-red-600 font-medium">首页</Link>
-              <Link href="/attractions" className="text-gray-700 hover:text-red-600 font-medium">景点详情</Link>
-              <Link href="/food" className="text-gray-700 hover:text-red-600 font-medium">美食推荐</Link>
-              <Link href="/transport" className="text-gray-700 hover:text-red-600 font-medium">交通指南</Link>
-              <Link href="/wuhan" className="text-gray-700 hover:text-red-600 font-medium">黄鹤楼</Link>
-              <Link href="/game" className="text-red-600 hover:text-red-800 font-medium">翻牌游戏</Link>
+              <Link href="/" className="text-gray-700 hover:text-chinese-red font-medium">首页</Link>
+              <Link href="/attractions" className="text-gray-700 hover:text-chinese-red font-medium">景点详情</Link>
+              <Link href="/food" className="text-gray-700 hover:text-chinese-red font-medium">美食推荐</Link>
+              <Link href="/transport" className="text-gray-700 hover:text-chinese-red font-medium">交通指南</Link>
+              <Link href="/wuhan" className="text-gray-700 hover:text-chinese-red font-medium">黄鹤楼</Link>
+              <Link href="/game" className="text-chinese-red hover:text-chinese-red-dark font-medium">翻牌游戏</Link>
             </div>
           </div>
         </div>
@@ -254,32 +256,32 @@ export default function MemoryGamePage() {
       {/* 主要内容 */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">中国景点翻牌游戏</h2>
+          <h2 className="chinese-title mb-6 text-center">中国景点翻牌游戏</h2>
           
           {/* 游戏信息 */}
-          <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
+          <div className="chinese-card p-6 mb-8">
             <div className="flex flex-wrap justify-between items-center mb-4">
               <div className="mb-4 sm:mb-0">
-                <p className="text-lg font-medium text-gray-700">步数: <span className="text-blue-600">{moves}</span></p>
-                <p className="text-lg font-medium text-gray-700">匹配: <span className="text-green-600">{matches}/{cardImages.length}</span></p>
+                <p className="text-lg font-medium text-gray-700">步数: <span className="text-chinese-red">{moves}</span></p>
+                <p className="text-lg font-medium text-gray-700">匹配: <span className="text-chinese-red-dark">{matches}/{cardImages.length}</span></p>
               </div>
               <div className="flex space-x-4 flex-wrap">
                 <button 
                   onClick={initializeGame}
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md"
+                  className="chinese-button py-2 px-6"
                 >
                   开始新游戏
                 </button>
                 <button 
                   onClick={() => setShowInstructions(!showInstructions)}
-                  className="bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md"
+                  className="chinese-button py-2 px-6"
                 >
                   {showInstructions ? '隐藏说明' : '游戏说明'}
                 </button>
                 <button 
                   onClick={handleHint}
                   disabled={!canUseHint || flippedCards.length > 0 || gameFinished || !gameStarted}
-                  className="bg-yellow-500 hover:bg-yellow-600 text-white font-medium py-2 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md disabled:bg-gray-300 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  className="chinese-button py-2 px-6 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
                   💡 提示
                 </button>
@@ -288,8 +290,8 @@ export default function MemoryGamePage() {
 
             {/* 游戏说明 */}
             {showInstructions && (
-              <div className="bg-blue-50 rounded-lg p-4 border-l-4 border-blue-500">
-                <h3 className="font-semibold text-blue-800 mb-2">游戏规则：</h3>
+              <div className="chinese-card p-4 border-l-4 border-chinese-red">
+                <h3 className="font-semibold text-chinese-red-dark mb-2 font-serif">游戏规则：</h3>
                 <ul className="list-disc list-inside text-gray-700 space-y-1">
                   <li>点击卡片来翻牌，寻找相同的中国景点图片</li>
                   <li>每次只能翻开两张卡片</li>
@@ -303,14 +305,14 @@ export default function MemoryGamePage() {
           </div>
 
           {/* 游戏卡片区域 */}
-          <div className="bg-white rounded-xl shadow-lg p-8">
+          <div className="chinese-card p-8">
             {gameFinished ? (
               <div className="text-center py-16">
-                <h3 className="text-4xl font-bold text-green-600 mb-4">恭喜你赢了！</h3>
+                <h3 className="text-4xl font-bold text-chinese-red-dark mb-4 font-serif">恭喜你赢了！</h3>
                 <p className="text-xl text-gray-700 mb-6">你用了 {moves} 步完成了游戏！</p>
                 <button 
                   onClick={initializeGame}
-                  className="bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
+                  className="chinese-button py-3 px-8"
                 >
                   再玩一次
                 </button>
@@ -326,11 +328,11 @@ export default function MemoryGamePage() {
                     {/* 卡片容器 */}
                     <div className="w-full h-40 relative">
                       {/* 卡片背面（默认显示） */}
-                      <div className={`absolute inset-0 bg-gradient-to-br from-red-500 to-purple-600 flex items-center justify-center rounded-lg overflow-hidden shadow-md transition-opacity duration-500 ${card.isFlipped || card.isMatched ? 'opacity-0' : 'opacity-100'}`}>
-                        <span className="text-white font-bold text-xl">?</span>
+                      <div className={`absolute inset-0 bg-chinese-red flex items-center justify-center rounded-lg overflow-hidden shadow-md transition-opacity duration-500 border-2 border-chinese-gold ${card.isFlipped || card.isMatched ? 'opacity-0' : 'opacity-100'}`}>
+                        <span className="text-white font-bold text-xl font-serif">?</span>
                       </div>
                       {/* 卡片正面（翻转后显示） */}
-                      <div className={`absolute inset-0 bg-white rounded-lg overflow-hidden shadow-md transition-opacity duration-500 ${card.isFlipped || card.isMatched ? 'opacity-100' : 'opacity-0'}`}>
+                      <div className={`absolute inset-0 bg-white rounded-lg overflow-hidden shadow-md transition-opacity duration-500 border-2 border-chinese-gold ${card.isFlipped || card.isMatched ? 'opacity-100' : 'opacity-0'}`}>
                         <img 
                           src={card.image} 
                           alt="中国景点" 
@@ -355,17 +357,17 @@ export default function MemoryGamePage() {
       </main>
 
       {/* 页脚 */}
-      <footer className="bg-gray-800 text-white py-12">
+      <footer className="bg-chinese-red-dark text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">中国旅游景点</h3>
+              <h3 className="text-xl font-bold mb-4 font-serif">中国旅游景点</h3>
               <p className="text-gray-400">
                 提供中国著名旅游景点的详细介绍，包括历史文化、景点特色、旅游信息等。
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-4">快速链接</h3>
+              <h3 className="text-xl font-bold mb-4 font-serif">快速链接</h3>
               <ul className="space-y-2">
                 <li><Link href="/" className="text-gray-400 hover:text-white transition-colors duration-300">首页</Link></li>
                 <li><Link href="/attractions" className="text-gray-400 hover:text-white transition-colors duration-300">景点详情</Link></li>
@@ -375,7 +377,7 @@ export default function MemoryGamePage() {
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-4">联系我们</h3>
+              <h3 className="text-xl font-bold mb-4 font-serif">联系我们</h3>
               <p className="text-gray-400 mb-2">电话：123-4567-8910</p>
               <p className="text-gray-400 mb-2">邮箱：info@huangshan-tour.com</p>
               <p className="text-gray-400">地址：安徽省黄山市黄山区汤口镇</p>
