@@ -70,7 +70,7 @@ export default function FoodPage() {
                 </svg>
               </button>
             </div>
-            <div className="flex flex-col space-y-6 items-center justify-center flex-1">
+            <div className="flex flex-col space-y-6 items-center justify-start pt-8 flex-1">
               <Link 
                 href="/" 
                 className="text-2xl font-medium text-gray-700 hover:text-chinese-red transition-colors"
