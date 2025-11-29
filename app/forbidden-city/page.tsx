@@ -1,18 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import React from 'react';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 
 export default function ForbiddenCityPage() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-  
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
   return (
     <div className="min-h-screen pt-20" style={{
       background: 'linear-gradient(135deg, #ffe0b2 0%, #ff9800 100%)',
@@ -21,125 +15,16 @@ export default function ForbiddenCityPage() {
       backgroundPosition: 'center'
     }}>
       {/* 导航栏 */}
-      <nav className="bg-cover bg-center bg-no-repeat shadow-md fixed top-0 left-0 right-0 z-50 border-b-2 border-chinese-gold" style={{ backgroundImage: `url('/images/背景图.jpg')` }}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between h-16">
-              <div className="flex items-center">
-                <span className="text-2xl font-bold text-chinese-red font-serif">故宫博物院</span>
-              </div>
-              {/* 桌面端导航 */}
-              <div className="hidden md:flex items-center space-x-4">
-                <Link href="/" className="text-gray-600 hover:text-chinese-red font-medium">网站首页</Link>
-                <Link href="/forbidden-city" className="text-chinese-red hover:text-chinese-red-dark font-medium">故宫首页</Link>
-                <Link href="#introduction" className="text-gray-600 hover:text-chinese-red font-medium">景点简介</Link>
-                <Link href="#history" className="text-gray-600 hover:text-chinese-red font-medium">历史沿革</Link>
-                <Link href="#attractions" className="text-gray-600 hover:text-chinese-red font-medium">主要景点</Link>
-                <Link href="#beauty" className="text-gray-600 hover:text-chinese-red font-medium">故宫之美</Link>
-                <Link href="#experience" className="text-gray-600 hover:text-chinese-red font-medium">特色体验</Link>
-                <Link href="#visit-info" className="text-gray-600 hover:text-chinese-red font-medium">旅游信息</Link>
-              </div>
-              {/* 移动端汉堡菜单按钮 */}
-              <div className="md:hidden flex items-center">
-                <button 
-                  className="text-gray-600 hover:text-chinese-red focus:outline-none"
-                  onClick={toggleMenu}
-                >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    {isMenuOpen ? (
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    ) : (
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-                    )}
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </nav>
-
-      {/* 移动端导航菜单 */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-chinese-light fixed inset-0 z-50">
-          <div className="flex flex-col h-full p-4">
-            <div className="flex justify-end mb-8">
-              <button 
-                className="text-gray-600 hover:text-chinese-red focus:outline-none"
-                onClick={toggleMenu}
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-            <div className="flex flex-col space-y-6 items-center justify-start pt-8 flex-1">
-              <Link 
-                href="/" 
-                className="text-2xl font-medium text-gray-600 hover:text-chinese-red transition-colors"
-                onClick={closeMenu}
-              >
-                网站首页
-              </Link>
-              <Link 
-                href="/forbidden-city" 
-                className="text-2xl font-medium text-chinese-red hover:text-chinese-red-dark transition-colors"
-                onClick={closeMenu}
-              >
-                故宫首页
-              </Link>
-              <Link 
-                href="#introduction" 
-                className="text-2xl font-medium text-gray-600 hover:text-chinese-red transition-colors"
-                onClick={closeMenu}
-              >
-                景点简介
-              </Link>
-              <Link 
-                href="#history" 
-                className="text-2xl font-medium text-gray-600 hover:text-chinese-red transition-colors"
-                onClick={closeMenu}
-              >
-                历史沿革
-              </Link>
-              <Link 
-                href="#attractions" 
-                className="text-2xl font-medium text-gray-600 hover:text-chinese-red transition-colors"
-                onClick={closeMenu}
-              >
-                主要景点
-              </Link>
-              <Link 
-                href="#beauty" 
-                className="text-2xl font-medium text-gray-600 hover:text-chinese-red transition-colors"
-                onClick={closeMenu}
-              >
-                故宫之美
-              </Link>
-              <Link 
-                href="#experience" 
-                className="text-2xl font-medium text-gray-600 hover:text-chinese-red transition-colors"
-                onClick={closeMenu}
-              >
-                特色体验
-              </Link>
-              <Link 
-                href="#visit-info" 
-                className="text-2xl font-medium text-gray-600 hover:text-chinese-red transition-colors"
-                onClick={closeMenu}
-              >
-                旅游信息
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
+      <Navbar />
 
       {/* 封面图 */}
       <div className="mt-16 relative">
         <div className="h-[600px] w-full overflow-hidden">
-          <img 
+          <Image 
             src="/images/故宫雪景.jpg" 
             alt="故宫博物院" 
-            className="w-full h-full object-cover opacity-85 saturate-90 brightness-95"
+            fill
+            className="object-cover opacity-85 saturate-90 brightness-95"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-transparent flex items-center justify-center">
             <div className="text-center px-4">
@@ -156,11 +41,12 @@ export default function ForbiddenCityPage() {
         <section id="introduction" className="mb-20">
           <h2 className="chinese-title mb-10 text-center">故宫简介</h2>
           <div className="chinese-card p-8 flex flex-col md:flex-row items-center gap-8">
-            <div className="md:w-1/2">
-              <img 
+            <div className="md:w-1/2 relative h-[400px]">
+              <Image 
               src="/images/故宫午门.jpg" 
               alt="故宫全景" 
-              className="h-[400px] w-full object-cover rounded-lg shadow-lg"
+              fill
+              className="object-cover rounded-lg shadow-lg"
             />
             </div>
             <div className="md:w-1/2">
@@ -184,11 +70,12 @@ export default function ForbiddenCityPage() {
             <div className="space-y-8">
               {/* 明朝时期 */}
               <div className="flex flex-col md:flex-row gap-6 items-center">
-                <div className="md:w-1/3">
-                  <img 
+                <div className="md:w-1/3 relative h-[200px]">
+                  <Image 
                   src="/images/明宫城图.jpg" 
                   alt="明朝时期的故宫" 
-                  className="h-[200px] w-full object-cover rounded-lg shadow-md"
+                  fill
+                  className="object-cover rounded-lg shadow-md"
                 />
                 </div>
                 <div className="md:w-2/3">
@@ -201,11 +88,12 @@ export default function ForbiddenCityPage() {
 
               {/* 清朝时期 */}
               <div className="flex flex-col md:flex-row-reverse gap-6 items-center">
-                <div className="md:w-1/3">
-                  <img 
+                <div className="md:w-1/3 relative h-[200px]">
+                  <Image 
                   src="/images/康熙南巡图.jpg" 
                   alt="清朝时期的故宫" 
-                  className="h-[200px] w-full object-cover rounded-lg shadow-md"
+                  fill
+                  className="object-cover rounded-lg shadow-md"
                 />
                 </div>
                 <div className="md:w-2/3">
@@ -218,11 +106,12 @@ export default function ForbiddenCityPage() {
 
               {/* 现代时期 */}
               <div className="flex flex-col md:flex-row gap-6 items-center">
-                <div className="md:w-1/3">
-                  <img 
+                <div className="md:w-1/3 relative h-[200px]">
+                  <Image 
                   src="/images/故宫午门.jpg" 
                   alt="现代时期的故宫" 
-                  className="h-[200px] w-full object-cover rounded-lg shadow-md"
+                  fill
+                  className="object-cover rounded-lg shadow-md"
                 />
                 </div>
                 <div className="md:w-2/3">
@@ -242,11 +131,12 @@ export default function ForbiddenCityPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* 太和殿 */}
             <div className="chinese-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
-              <div className="h-[200px] overflow-hidden">
-                <img 
+              <div className="relative h-[200px] overflow-hidden">
+                <Image 
                   src="/images/太和殿.jpg" 
                   alt="太和殿" 
-                  className="w-full h-full object-cover rounded-lg shadow-md transform group-hover:scale-105 transition-transform duration-500"
+                  fill
+                  className="object-cover rounded-lg shadow-md transform group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="p-4 text-white">
@@ -266,11 +156,12 @@ export default function ForbiddenCityPage() {
 
             {/* 中和殿 */}
             <div className="chinese-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
-              <div className="h-[200px] overflow-hidden">
-                <img 
+              <div className="relative h-[200px] overflow-hidden">
+                <Image 
                   src="/images/斗拱.jpg" 
                   alt="中和殿" 
-                  className="w-full h-full object-cover rounded-lg shadow-md transform group-hover:scale-105 transition-transform duration-500"
+                  fill
+                  className="object-cover rounded-lg shadow-md transform group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="p-4 text-white">
@@ -290,11 +181,12 @@ export default function ForbiddenCityPage() {
 
             {/* 保和殿 */}
             <div className="chinese-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
-              <div className="h-[200px] overflow-hidden">
-                <img 
+              <div className="relative h-[200px] overflow-hidden">
+                <Image 
                   src="/images/金銮宝座.jpg" 
                   alt="保和殿" 
-                  className="w-full h-full object-cover rounded-lg shadow-md transform group-hover:scale-105 transition-transform duration-500"
+                  fill
+                  className="object-cover rounded-lg shadow-md transform group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="p-4 text-white">
@@ -314,11 +206,12 @@ export default function ForbiddenCityPage() {
 
             {/* 乾清宫 */}
             <div className="chinese-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
-              <div className="h-[200px] overflow-hidden">
-                <img 
+              <div className="relative h-[200px] overflow-hidden">
+                <Image 
                   src="/images/乾清宫.jpg" 
                   alt="乾清宫" 
-                  className="h-full w-full object-cover rounded-lg shadow-md transform group-hover:scale-105 transition-transform duration-500"
+                  fill
+                  className="object-cover rounded-lg shadow-md transform group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="p-4 text-white">
@@ -338,11 +231,12 @@ export default function ForbiddenCityPage() {
 
             {/* 御花园 */}
             <div className="chinese-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
-              <div className="h-[200px] overflow-hidden">
-                <img 
+              <div className="relative h-[200px] overflow-hidden">
+                <Image 
                   src="/images/御花园.jpg" 
                   alt="御花园" 
-                  className="h-full w-full object-cover rounded-lg shadow-md transform group-hover:scale-105 transition-transform duration-500"
+                  fill
+                  className="object-cover rounded-lg shadow-md transform group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="p-4 text-white">
@@ -362,11 +256,12 @@ export default function ForbiddenCityPage() {
 
             {/* 钟表馆 */}
             <div className="chinese-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
-              <div className="h-[200px] overflow-hidden">
-                <img 
+              <div className="relative h-[200px] overflow-hidden">
+                <Image 
                   src="/images/金銮宝座.jpg" 
                   alt="钟表馆" 
-                  className="h-full w-full object-cover rounded-lg shadow-md transform group-hover:scale-105 transition-transform duration-500"
+                  fill
+                  className="object-cover rounded-lg shadow-md transform group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="p-4 text-white">
@@ -386,11 +281,12 @@ export default function ForbiddenCityPage() {
 
             {/* 中和殿 */}
             <div className="chinese-card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
-              <div className="h-[200px] overflow-hidden">
-                <img 
+              <div className="relative h-[200px] overflow-hidden">
+                <Image 
                   src="/images/斗拱.jpg" 
                   alt="中和殿" 
-                  className="h-full w-full object-cover rounded-lg shadow-md transform group-hover:scale-105 transition-transform duration-500"
+                  fill
+                  className="object-cover rounded-lg shadow-md transform group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="p-4 text-white">
@@ -407,6 +303,7 @@ export default function ForbiddenCityPage() {
                 </div>
               </div>
             </div>
+
           </div>
         </section>
 

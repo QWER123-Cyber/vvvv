@@ -3,17 +3,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 
 export default function WuhanPage() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-  
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
   return (
     <div className="min-h-screen pt-20" style={{
       backgroundImage: `linear-gradient(135deg, rgba(255, 245, 238, 0.9) 0%, rgba(255, 222, 173, 0.8) 50%, rgba(224, 255, 255, 0.7) 100%), url('/images/背景图.jpg')`,
@@ -21,101 +14,7 @@ export default function WuhanPage() {
       backgroundPosition: 'center'
     }}>
       {/* 导航栏 */}
-      <nav className="bg-cover bg-center bg-no-repeat shadow-md border-b-2 border-chinese-gold fixed top-0 left-0 right-0 z-50" style={{ backgroundImage: `url('/images/背景图.jpg')` }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex items-center">
-              <span className="text-2xl font-bold text-chinese-red font-serif">中国旅游景点</span>
-            </div>
-            {/* 桌面端导航 */}
-            <div className="hidden md:flex items-center space-x-4">
-              <Link href="/" className="text-gray-700 hover:text-chinese-red font-medium">首页</Link>
-              <Link href="/attractions" className="text-gray-700 hover:text-chinese-red font-medium">景点详情</Link>
-              <Link href="/food" className="text-gray-700 hover:text-chinese-red font-medium">美食推荐</Link>
-              <Link href="/transport" className="text-gray-700 hover:text-chinese-red font-medium">交通指南</Link>
-              <Link href="/wuhan" className="text-gray-700 hover:text-chinese-red font-medium">黄鹤楼</Link>
-              <Link href="/game" className="text-gray-700 hover:text-chinese-red font-medium">翻牌游戏</Link>
-            </div>
-            {/* 移动端汉堡菜单按钮 */}
-            <div className="md:hidden flex items-center">
-              <button 
-                className="text-gray-700 hover:text-chinese-red focus:outline-none"
-                onClick={toggleMenu}
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  {isMenuOpen ? (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  ) : (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-                  )}
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      {/* 移动端导航菜单 */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-chinese-light fixed inset-0 z-50">
-          <div className="flex flex-col h-full p-4">
-            <div className="flex justify-end mb-8">
-              <button 
-                className="text-gray-700 hover:text-chinese-red focus:outline-none"
-                onClick={toggleMenu}
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-            <div className="flex flex-col space-y-6 items-center justify-start pt-8 flex-1">
-              <Link 
-                href="/" 
-                className="text-2xl font-medium text-gray-700 hover:text-chinese-red transition-colors"
-                onClick={closeMenu}
-              >
-                首页
-              </Link>
-              <Link 
-                href="/attractions" 
-                className="text-2xl font-medium text-gray-700 hover:text-chinese-red transition-colors"
-                onClick={closeMenu}
-              >
-                景点详情
-              </Link>
-              <Link 
-                href="/food" 
-                className="text-2xl font-medium text-gray-700 hover:text-chinese-red transition-colors"
-                onClick={closeMenu}
-              >
-                美食推荐
-              </Link>
-              <Link 
-                href="/transport" 
-                className="text-2xl font-medium text-gray-700 hover:text-chinese-red transition-colors"
-                onClick={closeMenu}
-              >
-                交通指南
-              </Link>
-              <Link 
-                href="/wuhan" 
-                className="text-2xl font-medium text-gray-700 hover:text-chinese-red transition-colors"
-                onClick={closeMenu}
-              >
-                黄鹤楼
-              </Link>
-              <Link 
-                href="/game" 
-                className="text-2xl font-medium text-gray-700 hover:text-chinese-red transition-colors"
-                onClick={closeMenu}
-              >
-                翻牌游戏
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
+      <Navbar />
 
       {/* 主要内容 */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -125,13 +24,19 @@ export default function WuhanPage() {
           
           <div className="chinese-card overflow-hidden">
             {/* 主图区域 */}
-            <div className="relative h-96">
+            <div className="relative h-96 overflow-hidden group">
               <Image 
                 src="/images/黄鹤楼.jpg" 
-                alt="黄鹤楼" 
+                alt="中国武汉黄鹤楼全景" 
                 fill 
-                className="object-contain"
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center">
+                <div className="text-center p-6">
+                  <h3 className="text-3xl font-bold text-white font-serif mb-2">天下江山第一楼</h3>
+                  <p className="text-white/90">中国江南三大名楼之一</p>
+                </div>
+              </div>
             </div>
             
             {/* 内容区域 */}
@@ -187,20 +92,20 @@ export default function WuhanPage() {
                 <h3 className="text-2xl font-bold text-chinese-red-dark mb-6 border-b-2 border-chinese-red pb-2 font-serif">千古绝唱 · 诗句名篇</h3>
                 
                 {/* 崔颢《黄鹤楼》 */}
-                <div className="chinese-card p-6 mb-6 relative overflow-hidden">
+                <div className="chinese-card p-8 mb-8 relative overflow-hidden group">
                   {/* 半透明背景图 */}
-                  <div className="absolute inset-0 opacity-20">
+                  <div className="absolute inset-0 opacity-15">
                     <Image 
                       src="/images/《黄鹤楼》 - 崔颢（唐）.jpg" 
-                      alt="《黄鹤楼》 - 崔颢（唐）" 
+                      alt="崔颢《黄鹤楼》诗意图" 
                       fill 
-                      className="object-cover"
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                   </div>
                   {/* 文本内容 */}
                   <div className="relative z-10">
-                    <h4 className="text-lg font-bold text-chinese-red-dark mb-3 font-serif">《黄鹤楼》 - 崔颢（唐）</h4>
-                    <div className="text-center text-xl font-serif leading-relaxed">
+                    <h4 className="text-lg font-bold text-chinese-red-dark mb-4 border-b-2 border-chinese-red/30 pb-2 font-serif text-center">《黄鹤楼》 - 崔颢（唐）</h4>
+                    <div className="text-center text-2xl font-serif leading-relaxed space-y-2 text-gray-700">
                       <p>昔人已乘黄鹤去，此地空余黄鹤楼。</p>
                       <p>黄鹤一去不复返，白云千载空悠悠。</p>
                       <p>晴川历历汉阳树，芳草萋萋鹦鹉洲。</p>
@@ -210,20 +115,20 @@ export default function WuhanPage() {
                 </div>
                 
                 {/* 李白《黄鹤楼送孟浩然之广陵》 */}
-                <div className="chinese-card p-6 relative overflow-hidden">
+                <div className="chinese-card p-8 relative overflow-hidden group">
                   {/* 半透明背景图 */}
-                  <div className="absolute inset-0 opacity-20">
+                  <div className="absolute inset-0 opacity-15">
                     <Image 
                       src="/images/《黄鹤楼送孟浩然之广陵》 - 李白（唐）.jpg" 
-                      alt="《黄鹤楼送孟浩然之广陵》 - 李白（唐）" 
+                      alt="李白《黄鹤楼送孟浩然之广陵》诗意图" 
                       fill 
-                      className="object-cover"
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                   </div>
                   {/* 文本内容 */}
                   <div className="relative z-10">
-                    <h4 className="text-lg font-bold text-chinese-red-dark mb-3 font-serif">《黄鹤楼送孟浩然之广陵》 - 李白（唐）</h4>
-                    <div className="text-center text-xl font-serif leading-relaxed">
+                    <h4 className="text-lg font-bold text-chinese-red-dark mb-4 border-b-2 border-chinese-red/30 pb-2 font-serif text-center">《黄鹤楼送孟浩然之广陵》 - 李白（唐）</h4>
+                    <div className="text-center text-2xl font-serif leading-relaxed space-y-2 text-gray-700">
                       <p>故人西辞黄鹤楼，烟花三月下扬州。</p>
                       <p>孤帆远影碧空尽，唯见长江天际流。</p>
                     </div>
@@ -312,52 +217,58 @@ export default function WuhanPage() {
         {/* 武汉风光 */}
         <section className="mb-16">
           <h2 className="chinese-title mb-8 text-center">武汉风光</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* 武汉江滩 */}
-            <div className="chinese-card overflow-hidden group">
-              <div className="relative h-60 overflow-hidden">
+            <div className="chinese-card overflow-hidden group hover:shadow-xl transition-all duration-500">
+              <div className="relative h-64 overflow-hidden">
                 <Image 
                   src="/images/武汉江滩.jpg" 
-                  alt="武汉江滩" 
+                  alt="武汉长江江滩全景" 
                   fill 
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                  <h3 className="text-white text-xl font-bold font-serif">武汉江滩</h3>
+                </div>
               </div>
-              <div className="p-4">
-                <h3 className="text-xl font-bold text-chinese-red-dark font-serif">武汉江滩</h3>
-                <p className="text-gray-600">长江武汉段的美丽江滩，是武汉市民休闲娱乐的好去处。</p>
+              <div className="p-6">
+                <p className="text-gray-600">长江武汉段的美丽江滩，是武汉市民休闲娱乐的好去处，展现了现代都市与自然的完美融合。</p>
               </div>
             </div>
             
             {/* 蛇山 */}
-            <div className="chinese-card overflow-hidden group">
-              <div className="relative h-60 overflow-hidden">
+            <div className="chinese-card overflow-hidden group hover:shadow-xl transition-all duration-500">
+              <div className="relative h-64 overflow-hidden">
                 <Image 
                   src="/images/蛇山.jpg" 
-                  alt="蛇山" 
+                  alt="武汉蛇山风景" 
                   fill 
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                  <h3 className="text-white text-xl font-bold font-serif">蛇山</h3>
+                </div>
               </div>
-              <div className="p-4">
-                <h3 className="text-xl font-bold text-chinese-red-dark font-serif">蛇山</h3>
-                <p className="text-gray-600">黄鹤楼所在地，武汉著名的风景名胜区。</p>
+              <div className="p-6">
+                <p className="text-gray-600">黄鹤楼所在地，武汉著名的风景名胜区，拥有丰富的历史文化和自然景观资源。</p>
               </div>
             </div>
             
             {/* 晴川阁 */}
-            <div className="chinese-card overflow-hidden group">
-              <div className="relative h-60 overflow-hidden">
+            <div className="chinese-card overflow-hidden group hover:shadow-xl transition-all duration-500">
+              <div className="relative h-64 overflow-hidden">
                 <Image 
                   src="/images/晴川阁.jpg" 
-                  alt="晴川阁" 
+                  alt="武汉晴川阁" 
                   fill 
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                  <h3 className="text-white text-xl font-bold font-serif">晴川阁</h3>
+                </div>
               </div>
-              <div className="p-4">
-                <h3 className="text-xl font-bold text-chinese-red-dark font-serif">晴川阁</h3>
-                <p className="text-gray-600">武汉著名的古建筑，与黄鹤楼隔江相望。</p>
+              <div className="p-6">
+                <p className="text-gray-600">武汉著名的古建筑，与黄鹤楼隔江相望，被誉为"楚国晴川第一楼"。</p>
               </div>
             </div>
           </div>
@@ -365,36 +276,7 @@ export default function WuhanPage() {
       </main>
 
       {/* 页脚 */}
-      <footer className="bg-chinese-red-dark text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4 font-serif">中国旅游景点</h3>
-              <p className="text-gray-400">
-                提供中国著名旅游景点的详细介绍，包括历史文化、景点特色、旅游信息等。
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-4 font-serif">快速链接</h3>
-              <ul className="space-y-2">
-                <li><Link href="/" className="text-gray-400 hover:text-white transition-colors duration-300">首页</Link></li>
-                <li><Link href="/attractions" className="text-gray-400 hover:text-white transition-colors duration-300">景点详情</Link></li>
-                <li><Link href="/food" className="text-gray-400 hover:text-white transition-colors duration-300">美食推荐</Link></li>
-                <li><Link href="/transport" className="text-gray-400 hover:text-white transition-colors duration-300">交通指南</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-4 font-serif">联系我们</h3>
-              <p className="text-gray-400 mb-2">电话：0123-4567-8910</p>
-              <p className="text-gray-400 mb-2">邮箱：info@chinatourism.com</p>
-              <p className="text-gray-400">地址：湖北省武汉市武昌区蛇山</p>
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
-            <p>© 2023 中国旅游景点. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

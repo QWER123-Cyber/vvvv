@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 
 // 定义游戏卡片类型
 interface Card {
@@ -13,16 +15,6 @@ interface Card {
 }
 
 export default function MemoryGamePage() {
-  // 移动端菜单状态管理
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-  
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
 
   // 游戏状态
   const [cards, setCards] = useState<Card[]>([]);
@@ -36,12 +28,12 @@ export default function MemoryGamePage() {
 
   // 游戏配置
   const cardImages = [
-    { id: 1, name: '长城', image: '/images/八达岭长城.jpg' },
-    { id: 2, name: '故宫午门', image: '/images/故宫午门.jpg' },
-    { id: 3, name: '太和殿', image: '/images/太和殿.jpg' },
-    { id: 4, name: '黄山', image: '/images/黄山.jpg' },
-    { id: 5, name: '黄鹤楼', image: '/images/黄鹤楼.jpg' },
-    { id: 6, name: '黄山云海', image: '/images/云海.jpg' },
+    { id: 1, name: '长城', image: '/images/八达岭长城.jpg', alt: '中国万里长城八达岭段' },
+    { id: 2, name: '故宫午门', image: '/images/故宫午门.jpg', alt: '北京故宫午门全景' },
+    { id: 3, name: '太和殿', image: '/images/太和殿.jpg', alt: '故宫太和殿宏伟景观' },
+    { id: 4, name: '黄山', image: '/images/黄山.jpg', alt: '安徽黄山风光' },
+    { id: 5, name: '黄鹤楼', image: '/images/黄鹤楼.jpg', alt: '武汉黄鹤楼古建筑' },
+    { id: 6, name: '黄山云海', image: '/images/云海.jpg', alt: '黄山壮观云海景观' },
   ];
 
   // 初始化游戏
@@ -244,101 +236,7 @@ export default function MemoryGamePage() {
       backgroundPosition: 'center'
     }}>
       {/* 导航栏 */}
-      <nav className="bg-cover bg-center bg-no-repeat shadow-md border-b-2 border-chinese-gold fixed top-0 left-0 right-0 z-50" style={{ backgroundImage: `url('/images/背景图.jpg')` }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex items-center">
-              <span className="text-2xl font-bold text-chinese-red font-serif">中国旅游景点</span>
-            </div>
-            {/* 桌面端导航 */}
-            <div className="hidden md:flex items-center space-x-4">
-              <Link href="/" className="text-gray-700 hover:text-chinese-red font-medium">首页</Link>
-              <Link href="/attractions" className="text-gray-700 hover:text-chinese-red font-medium">景点详情</Link>
-              <Link href="/food" className="text-gray-700 hover:text-chinese-red font-medium">美食推荐</Link>
-              <Link href="/transport" className="text-gray-700 hover:text-chinese-red font-medium">交通指南</Link>
-              <Link href="/wuhan" className="text-gray-700 hover:text-chinese-red font-medium">黄鹤楼</Link>
-              <Link href="/game" className="text-chinese-red hover:text-chinese-red-dark font-medium">翻牌游戏</Link>
-            </div>
-            {/* 移动端汉堡菜单按钮 */}
-            <div className="md:hidden flex items-center">
-              <button 
-                className="text-gray-700 hover:text-chinese-red focus:outline-none"
-                onClick={toggleMenu}
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  {isMenuOpen ? (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  ) : (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-                  )}
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      {/* 移动端导航菜单 */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-chinese-light fixed inset-0 z-50">
-          <div className="flex flex-col h-full p-4">
-            <div className="flex justify-end mb-8">
-              <button 
-                className="text-gray-700 hover:text-chinese-red focus:outline-none"
-                onClick={toggleMenu}
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-            <div className="flex flex-col space-y-6 items-center justify-start pt-8 flex-1">
-              <Link 
-                href="/" 
-                className="text-2xl font-medium text-gray-700 hover:text-chinese-red transition-colors"
-                onClick={closeMenu}
-              >
-                首页
-              </Link>
-              <Link 
-                href="/attractions" 
-                className="text-2xl font-medium text-gray-700 hover:text-chinese-red transition-colors"
-                onClick={closeMenu}
-              >
-                景点详情
-              </Link>
-              <Link 
-                href="/food" 
-                className="text-2xl font-medium text-gray-700 hover:text-chinese-red transition-colors"
-                onClick={closeMenu}
-              >
-                美食推荐
-              </Link>
-              <Link 
-                href="/transport" 
-                className="text-2xl font-medium text-gray-700 hover:text-chinese-red transition-colors"
-                onClick={closeMenu}
-              >
-                交通指南
-              </Link>
-              <Link 
-                href="/wuhan" 
-                className="text-2xl font-medium text-gray-700 hover:text-chinese-red transition-colors"
-                onClick={closeMenu}
-              >
-                黄鹤楼
-              </Link>
-              <Link 
-                href="/game" 
-                className="text-2xl font-medium text-chinese-red hover:text-chinese-red-dark transition-colors"
-                onClick={closeMenu}
-              >
-                翻牌游戏
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
+      <Navbar />
 
       {/* 主要内容 */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -405,31 +303,43 @@ export default function MemoryGamePage() {
                 </button>
               </div>
             ) : (
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                {cards.map(card => (
-                  <div 
-                    key={card.id}
-                    className={`relative cursor-pointer transition-all duration-300 transform hover:scale-105 ${card.isMatched ? 'opacity-80' : ''}`}
-                    onClick={() => handleCardClick(card.id)}
-                  >
-                    {/* 卡片容器 */}
-                    <div className="w-full h-40 relative">
-                      {/* 卡片背面（默认显示） */}
-                      <div className={`absolute inset-0 bg-chinese-red flex items-center justify-center rounded-lg overflow-hidden shadow-md transition-opacity duration-500 border-2 border-chinese-gold ${card.isFlipped || card.isMatched ? 'opacity-0' : 'opacity-100'}`}>
-                        <span className="text-white font-bold text-xl font-serif">?</span>
-                      </div>
-                      {/* 卡片正面（翻转后显示） */}
-                      <div className={`absolute inset-0 bg-white rounded-lg overflow-hidden shadow-md transition-opacity duration-500 border-2 border-chinese-gold ${card.isFlipped || card.isMatched ? 'opacity-100' : 'opacity-0'}`}>
-                        <img 
-                          src={card.image} 
-                          alt="中国景点" 
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                        />
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6">
+                {cards.map(card => {
+                  // 找到对应的卡片信息
+                  const cardInfo = cardImages.find(img => img.image === card.image);
+                  return (
+                    <div 
+                      key={card.id}
+                      className={`relative cursor-pointer transition-all duration-600 transform ${card.isMatched ? 'opacity-60 scale-95' : 'hover:scale-105 hover:shadow-xl'}`}
+                      onClick={() => handleCardClick(card.id)}
+                    >
+                      {/* 卡片容器 */}
+                      <div className="w-full h-40 sm:h-48 relative">
+                        {/* 卡片背面（默认显示） */}
+                        <div className={`absolute inset-0 bg-gradient-to-br from-chinese-red to-chinese-red-dark flex items-center justify-center rounded-lg overflow-hidden shadow-lg transition-opacity duration-500 border-2 border-white/20 ${card.isFlipped || card.isMatched ? 'opacity-0' : 'opacity-100'}`}>
+                          <span className="text-white font-bold text-xl font-serif">?</span>
+                        </div>
+                        {/* 卡片正面（翻转后显示） */}
+                        <div className={`absolute inset-0 bg-white rounded-lg overflow-hidden shadow-lg transition-opacity duration-500 border-2 border-chinese-gold ${card.isFlipped || card.isMatched ? 'opacity-100' : 'opacity-0'}`}>
+                          <div className="relative w-full h-full">
+                            <Image 
+                              src={card.image} 
+                              alt={cardInfo?.alt || "中国景点"} 
+                              fill
+                              className="object-cover transition-transform duration-300 hover:scale-110"
+                              loading="lazy"
+                            />
+                            {card.isFlipped && (
+                              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-2">
+                                <p className="text-white font-bold text-center text-sm font-serif">{cardInfo?.name}</p>
+                              </div>
+                            )}
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             )}
 
@@ -444,37 +354,7 @@ export default function MemoryGamePage() {
       </main>
 
       {/* 页脚 */}
-      <footer className="bg-chinese-red-dark text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4 font-serif">中国旅游景点</h3>
-              <p className="text-gray-400">
-                提供中国著名旅游景点的详细介绍，包括历史文化、景点特色、旅游信息等。
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-4 font-serif">快速链接</h3>
-              <ul className="space-y-2">
-                <li><Link href="/" className="text-gray-400 hover:text-white transition-colors duration-300">首页</Link></li>
-                <li><Link href="/attractions" className="text-gray-400 hover:text-white transition-colors duration-300">景点详情</Link></li>
-                <li><Link href="/food" className="text-gray-400 hover:text-white transition-colors duration-300">美食推荐</Link></li>
-                <li><Link href="/transport" className="text-gray-400 hover:text-white transition-colors duration-300">交通指南</Link></li>
-                <li><Link href="/game" className="text-gray-400 hover:text-white transition-colors duration-300">翻牌游戏</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-4 font-serif">联系我们</h3>
-              <p className="text-gray-400 mb-2">电话：123-4567-8910</p>
-              <p className="text-gray-400 mb-2">邮箱：info@huangshan-tour.com</p>
-              <p className="text-gray-400">地址：安徽省黄山市黄山区汤口镇</p>
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
-            <p>© 2023 中国旅游景点. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
 
       {/* 移除3D翻转的复杂CSS，使用简单的透明度切换 */}
     </div>
